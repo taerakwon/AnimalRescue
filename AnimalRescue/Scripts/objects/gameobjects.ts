@@ -1,10 +1,24 @@
 ﻿module objects {
     export class GameObject extends createjs.Sprite {
-        width: number;
-        height: number;
-        constructor(SpriteName: string) {
-            super(managers.Assets.atlas, SpriteName);
+
+        // Public properties
+        public width: number;
+        public height: number;
+        public name: string = "";
+        public sound: string = "";
+        public isColliding: boolean = false;
+        public health: number;
+        public damage: number;
+
+        // Protected properties
+        protected dx: number;
+        protected dy: number;
+
+        // Constructor
+        constructor(imageString: string) {
+            super(assets.atlas, imageString);
             this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
         }
     }
 } 
