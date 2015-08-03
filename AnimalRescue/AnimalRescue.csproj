@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\gradient.png" />
     <Content Include="assets\images\startScreen.png" />
     <Content Include="assets\images\titleAtlas.png" />
     <Content Include="packages.config" />
@@ -92,6 +93,7 @@
     <TypeScriptCompile Include="Scripts\managers\asset.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gradient.ts" />
     <TypeScriptCompile Include="Scripts\states\start.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />

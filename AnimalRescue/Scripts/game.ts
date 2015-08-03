@@ -8,6 +8,7 @@
 /// <reference path="managers/asset.ts" />
 
 /// <reference path="objects/gameobjects.ts" />
+/// <reference path="objects/gradient.ts" />
 
 
 /// <reference path="objects/button.ts" />
@@ -30,11 +31,12 @@ var stats: Stats;
 var assets: managers.Assets;
 
 // Game States
-var currenStateFunction; // State Alias
-var currenState: number;
+var currentStateFunction; // State Alias
+var currentState: number;
 var start: state.Start;
 
 // Background Variables
+var gradient: objects.Gradient;
 var startScreen: createjs.Bitmap;
 
 
@@ -57,7 +59,7 @@ function init()
     createjs.Ticker.on("tick", gameLoop); 
 
     // Sets the current state
-    currenState = config.START_STATE;
+    currentState = config.START_STATE;
 
     // calling main game function
     changeState();
@@ -81,6 +83,7 @@ function setupStats()
 function gameLoop()
 {
     stats.begin(); // Begin measuring
+    currentStateFunction.update();
     stage.update();
     stats.end(); // end measuring
 }
@@ -91,11 +94,11 @@ function changeState() {
     game = new createjs.Container();
 
     // State Machine
-    switch (currenState) {
+    switch (currentState) {
         case config.START_STATE:
             // Instatiate start state            
             start = new state.Start();
-            currenStateFunction = start;
+            currentStateFunction = start;
             break;
     }
 

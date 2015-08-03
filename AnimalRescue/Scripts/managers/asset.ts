@@ -8,7 +8,8 @@
 
         // Image and Sound Manifest
         private manifest = [
-            { id: "startScreen", src: "assets/images/startScreen.png" }
+            { id: "startScreen", src: "assets/images/startScreen.png" },
+            { id: "gradient", src: "assets/images/gradient.png" }
         ];
 
         private titleManifest = {
