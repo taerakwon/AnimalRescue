@@ -16,6 +16,8 @@
 
 
 /// <reference path="states/start.ts" />
+/// <reference path="states/instruction.ts" />
+
 
 
 
@@ -34,6 +36,7 @@ var assets: managers.Assets;
 var currentStateFunction; // State Alias
 var currentState: number;
 var start: state.Start;
+var instruction: state.Instruction;
 
 // Background Variables
 var gradient: objects.Gradient;
@@ -99,6 +102,11 @@ function changeState() {
             // Instatiate start state            
             start = new state.Start();
             currentStateFunction = start;
+            break;
+        case config.INSTRUCTION_STATE:
+            // Instatiate instruction state
+            instruction = new state.Instruction();
+            currentStateFunction = instruction;
             break;
     }
 

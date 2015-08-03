@@ -5,10 +5,11 @@
         private image1: string;
 
         // Constructor
+
         constructor(imageString: string, imageString1: string) {
             this.image = imageString;
             this.image1 = imageString1;
-            super(assets.titleAtlas, imageString);
+            super(assets.buttonAtlas, imageString);
             this.on("mouseover", this.over, this);
             this.on("mouseout", this.out, this);            
         }

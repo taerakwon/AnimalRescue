@@ -1,11 +1,12 @@
 ﻿module state {    
+    // Start state class
     export class Start {        
         private startButton: objects.Button;
         private instructionButton: objects.Button;
         
 
         constructor() {
-            this.main();
+            this._main();
         }
 
         public update() {
@@ -13,7 +14,7 @@
         }
 
         // Main method
-        private main() {
+        private _main() {
             // Instantiate new game container
             game = new createjs.Container();
 
@@ -35,6 +36,7 @@
             this.instructionButton.x = 335;
             this.instructionButton.y = 420;
             game.addChild(this.instructionButton);
+            this.instructionButton.on("click", this._instructionClick, this);
 
             
 
@@ -43,16 +45,16 @@
         }
 
         // Destroy Method
-        private destroy() {
+        private _destroy() {
             game.removeAllChildren();
         }
 
         // Instruction Method
-        private instructionClick(event: createjs.MouseEvent) {
-            this.destroy();
+        private _instructionClick(event: createjs.MouseEvent) {
+            this._destroy();
             currentState = config.INSTRUCTION_STATE;
             changeState();            
-            this.instructionButton.off("click", this.instructionClick);
+            this.instructionButton.off("click", this._instructionClick);
         }
     }
 }

@@ -1,50 +1,59 @@
 ﻿module managers {
     // Asset Manager Class
-    export class Assets {               
+    export class Assets {
         public loader: createjs.LoadQueue;
         public atlas: createjs.SpriteSheet; // Sprites
-        public titleAtlas: createjs.SpriteSheet;
+        public buttonAtlas: createjs.SpriteSheet;
+        public instructionAtlas: createjs.SpriteSheet;
         public background: createjs.SpriteSheet; // Sprites for background
 
         // Image and Sound Manifest
         private manifest = [
             { id: "startScreen", src: "assets/images/startScreen.png" },
-            { id: "gradient", src: "assets/images/gradient.png" }
+            { id: "gradient", src: "assets/images/gradient.png" },
+            { id: "introduction", src: "assets/images/introduction.png" }
         ];
 
-        private titleManifest = {
+        private buttonManifest = {
             "images": [
-                "assets/images/titleAtlas.png"
+                "assets/images/buttonAtlas.png"
             ],
 
             "frames": [
-                [2, 2, 139, 25, 0, 0, 0],
-                [143, 2, 139, 25, 0, 0, 0],
-                [284, 2, 70, 24, 0, 0, 0],
-                [356, 2, 70, 24, 0, 0, 0]
+                [2, 2, 137, 89, 0, 0, 0],
+                [141, 2, 137, 89, 0, 0, 0],
+                [280, 2, 206, 53, 0, 0, 0],
+                [280, 57, 139, 25, 0, 0, 0],
+                [421, 57, 139, 25, 0, 0, 0],
+                [488, 2, 206, 53, 0, 0, 0],
+                [562, 57, 70, 24, 0, 0, 0],
+                [634, 57, 70, 24, 0, 0, 0]
             ],
 
             "animations": {
-                "instructionorange": [0],
-                "instructionred": [1],
-                "startorange": [2],
-                "startred": [3]
+                "arroworange": [0],
+                "arrowred": [1],
+                "replayorange": [2],
+                "instructionorange": [3],
+                "instructionred": [4],
+                "replayred": [5],
+                "startorange": [6],
+                "startred": [7]
             }
         };
-
 
         // Default Constructor
         constructor() {
             this.init();
         }
 
-        init() {
+        public init() {
             this.loader = new createjs.LoadQueue();
             this.loader.installPlugin(createjs.Sound);
             // Event listener triggers when assets are completely loaded
             this.loader.on("complete", init, this);
             this.loader.loadManifest(this.manifest);
-            this.titleAtlas = new createjs.SpriteSheet(this.titleManifest);
+            this.buttonAtlas = new createjs.SpriteSheet(this.buttonManifest);
         }
 
     }
