@@ -11,7 +11,9 @@
         private manifest = [
             { id: "startScreen", src: "assets/images/startScreen.png" },
             { id: "gradient", src: "assets/images/gradient.png" },
-            { id: "introduction", src: "assets/images/introduction.png" }
+            { id: "introduction", src: "assets/images/introduction.png" },
+            { id: "level1", src: "assets/images/level1.png" },
+            { id: "level1Grass", src: "assets/images/level1Grass.png" }
         ];
 
         private buttonManifest = {

@@ -1,4 +1,6 @@
-﻿/// <reference path="typings/stats/stats.d.ts" />
+﻿/// <reference path="objects/scoreboard.ts" />
+/// <reference path="objects/scoreboard.ts" />
+/// <reference path="typings/stats/stats.d.ts" />
 /// <reference path="typings/easeljs/easeljs.d.ts" />
 /// <reference path="typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="typings/soundjs/soundjs.d.ts" />
@@ -7,16 +9,17 @@
 /// <reference path="config/config.ts" />
 /// <reference path="managers/asset.ts" />
 
+/// <reference path="objects/label.ts" />
 /// <reference path="objects/gameobjects.ts" />
 /// <reference path="objects/gradient.ts" />
-
-
 /// <reference path="objects/button.ts" />
+/// <reference path="objects/scoreboard.ts" />
 
 
 
 /// <reference path="states/start.ts" />
 /// <reference path="states/instruction.ts" />
+/// <reference path="states/play.ts" />
 
 
 
@@ -28,7 +31,6 @@ var stage: createjs.Stage;
 var game: createjs.Container;
 var stats: Stats;
 
-
 // Game Managers
 var assets: managers.Assets;
 
@@ -37,13 +39,14 @@ var currentStateFunction; // State Alias
 var currentState: number;
 var start: state.Start;
 var instruction: state.Instruction;
+var play: state.Play;
 
 // Background Variables
 var gradient: objects.Gradient;
 var startScreen: createjs.Bitmap;
 
-
 // Gane Variables
+var scoreBoard: objects.ScoreBoard;
 
 // Preloader Function
 function preload() {
@@ -86,7 +89,7 @@ function setupStats()
 function gameLoop()
 {
     stats.begin(); // Begin measuring
-    currentStateFunction.update();
+    //currentStateFunction.update();
     stage.update();
     stats.end(); // end measuring
 }
@@ -99,14 +102,19 @@ function changeState() {
     // State Machine
     switch (currentState) {
         case config.START_STATE:
-            // Instatiate start state            
+            // Instantiate start state            
             start = new state.Start();
             currentStateFunction = start;
             break;
         case config.INSTRUCTION_STATE:
-            // Instatiate instruction state
+            // Instantiate instruction state
             instruction = new state.Instruction();
             currentStateFunction = instruction;
+            break;
+        case config.PLAY_STATE:
+            // Instantiate play state
+            play = new state.Play();
+            currentStateFunction = play;
             break;
     }
 

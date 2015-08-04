@@ -63,6 +63,8 @@
     <Content Include="assets\images\gradient.png" />
     <Content Include="assets\images\introduction.png" />
     <Content Include="assets\images\introManifest.png" />
+    <Content Include="assets\images\level1.png" />
+    <Content Include="assets\images\level1Grass.png" />
     <Content Include="assets\images\startScreen.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -96,7 +98,10 @@
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />
     <TypeScriptCompile Include="Scripts\objects\gradient.ts" />
+    <TypeScriptCompile Include="Scripts\objects\label.ts" />
+    <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
+    <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\states\start.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
