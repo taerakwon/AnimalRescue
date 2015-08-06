@@ -19,6 +19,9 @@ var objects;
             this.damage = 75;
             this.isAvailable = true;
         }
+        Rocktower.prototype.destroy = function () {
+            game.removeChild(this);
+        };
         return Rocktower;
     })(objects.Tower);
     objects.Rocktower = Rocktower;

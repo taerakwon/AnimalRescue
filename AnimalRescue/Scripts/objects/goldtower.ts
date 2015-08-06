@@ -11,5 +11,13 @@
             this.damage = 0;
             this.isAvailable = true;
         }
+
+        update() {
+        }
+
+        destroy() {
+            game.removeChild(this);
+        }
+
     }
 }  

@@ -21,6 +21,7 @@
 /// <reference path="objects/rocktower.ts" />
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
+/// <reference path="objects/bowhunter.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;

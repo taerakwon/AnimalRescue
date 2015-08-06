@@ -12,5 +12,9 @@
             this.isAvailable = true;
             var slow = 10;
         }
+
+        destroy() {
+            game.removeChild(this);
+        }
     }
 }  

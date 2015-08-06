@@ -11,5 +11,9 @@
             this.damage = 75;
             this.isAvailable = true;
         }
+
+        destroy() {
+            game.removeChild(this);
+        }
     }
 }  

@@ -20,6 +20,9 @@ var objects;
             this.isAvailable = true;
             var burnDamage = 25;
         }
+        Firetower.prototype.destroy = function () {
+            game.removeChild(this);
+        };
         return Firetower;
     })(objects.Tower);
     objects.Firetower = Firetower;

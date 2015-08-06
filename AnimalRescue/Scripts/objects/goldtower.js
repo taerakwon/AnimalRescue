@@ -19,6 +19,11 @@ var objects;
             this.damage = 0;
             this.isAvailable = true;
         }
+        Goldtower.prototype.update = function () {
+        };
+        Goldtower.prototype.destroy = function () {
+            game.removeChild(this);
+        };
         return Goldtower;
     })(objects.Tower);
     objects.Goldtower = Goldtower;

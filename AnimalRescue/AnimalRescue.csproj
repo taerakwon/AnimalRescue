@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\bowhunterAtlas.png" />
     <Content Include="assets\images\buttonAtlas.png" />
     <Content Include="assets\images\empty.png" />
     <Content Include="assets\images\emptyDark.png" />
@@ -99,6 +100,7 @@
     <TypeScriptCompile Include="Scripts\game.ts" />
     <TypeScriptCompile Include="Scripts\logics\grid.ts" />
     <TypeScriptCompile Include="Scripts\managers\asset.ts" />
+    <TypeScriptCompile Include="Scripts\objects\bowhunter.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\firetower.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />

@@ -7,6 +7,7 @@
         public instructionAtlas: createjs.SpriteSheet;
         public background: createjs.SpriteSheet; // Sprites for background
         public towerAtlas: createjs.SpriteSheet;
+        public bowhunterAtlas: createjs.SpriteSheet;
 
         // Image and Sound Manifest
         private manifest = [
@@ -86,6 +87,33 @@
             }
         };
 
+        private bowhunterManifest = {
+            "images": [
+                "assets/images/bowhunterAtlas.png"
+            ],
+
+            "frames": [
+                [2, 2, 81, 95, 0, -19, -5],
+                [85, 2, 84, 93, 0, -16, -7],
+                [171, 2, 84, 92, 0, -16, -8],
+                [257, 2, 71, 92, 0, -13, -8],
+                [330, 2, 68, 92, 0, -17, -8],
+                [400, 2, 83, 91, 0, -17, -9],
+                [485, 2, 82, 91, 0, -17, -9],
+                [569, 2, 79, 91, 0, -16, -9],
+                [650, 2, 68, 90, 0, -15, -10]
+            ],
+
+            "animations": {
+                "hunter": {
+                    frames: [5, 0, 2, 1, 4, 3, 7, 6, 8],
+                    speed: 0.15
+                }
+            }
+        };
+
+
+
         // Default Constructor
         constructor() {
             this.init();
@@ -99,6 +127,7 @@
             this.loader.loadManifest(this.manifest);
             this.buttonAtlas = new createjs.SpriteSheet(this.buttonManifest);
             this.towerAtlas = new createjs.SpriteSheet(this.towerManifest);
+            this.bowhunterAtlas = new createjs.SpriteSheet(this.bowhunterManifest);
         }
 
     }

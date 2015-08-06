@@ -20,6 +20,9 @@ var objects;
             this.isAvailable = true;
             var slow = 10;
         }
+        Icetower.prototype.destroy = function () {
+            game.removeChild(this);
+        };
         return Icetower;
     })(objects.Tower);
     objects.Icetower = Icetower;

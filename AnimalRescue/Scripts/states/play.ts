@@ -1,17 +1,20 @@
 ﻿// Play state
 module state {
     var money: number;
+    var hunters = [];
+    var timer: number;
 
     export class Play {
         // Private variables
         private level1Background: createjs.Bitmap;
         private moneyLabel: objects.Label;
         private level1Grass: createjs.Bitmap;
-
         private firetowerBtn: objects.Button;
         private icetowerBtn: objects.Button;
         private rocktowerBtn: objects.Button;
         private goldtowerBtn: objects.Button;
+
+        private bowhunter: objects.Bowhunter;
 
         constructor() {
             this._Main();
@@ -20,6 +23,7 @@ module state {
         // Update Method
         public update() {
             scoreBoard.update();
+            this._hunterUpdate();
         }
 
 
@@ -34,13 +38,7 @@ module state {
             game.addChild(this.level1Background);
 
             // Adding 6x4 grid to the game
-            grid = new logic.Grid();    
-
-            // Add Grass
-            this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level1Grass"));
-            this.level1Grass.x = 700;
-            this.level1Grass.y = 100;
-            game.addChild(this.level1Grass);            
+            grid = new logic.Grid();                         
 
             // Add Tower Buttons
 
@@ -68,11 +66,26 @@ module state {
             game.addChild(this.firetowerBtn);     
             this.firetowerBtn.addEventListener("click", this._firetowerBtn_Click);
 
-            stage.on("click", grid.onClickEvent);
-            
+            stage.on("click", grid.onClickEvent);                   
 
             // Add Scoreboard 
             scoreBoard = new objects.ScoreBoard();
+
+            // Add Bowhunter
+            for (var i = 0; i < 10; i++) {
+                this.bowhunter = new objects.Bowhunter("hunter");
+                this.bowhunter.x = 800+(200*i);
+                this.bowhunter.dx = -2;          
+                this.bowhunter.y = 100 + (100 * Math.floor((Math.random() * 4)));                
+                hunters.push(this.bowhunter);     
+                game.addChild(hunters[i]);
+            }
+
+            // Add Grass
+            this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level1Grass"));
+            this.level1Grass.x = 700;
+            this.level1Grass.y = 100;
+            game.addChild(this.level1Grass);   
 
             // Add game container to stage
             stage.addChild(game);       
@@ -112,6 +125,19 @@ module state {
             else if (scoreBoard.startMoney < 150) {
                 window.alert("Not enought money");
             }                                           
+        }
+
+        private _hunterUpdate() {
+            hunters[0].update();
+            hunters[1].update();
+            hunters[2].update();
+            hunters[3].update();
+            hunters[4].update();
+            hunters[5].update();
+            hunters[6].update();
+            hunters[7].update();
+            hunters[8].update();
+            hunters[9].update();
         }
 
         

@@ -12,5 +12,9 @@
             this.isAvailable = true;
             var burnDamage = 25;
         }
+
+        destroy() {
+            game.removeChild(this);
+        }
     }
 } 
