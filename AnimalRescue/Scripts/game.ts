@@ -14,12 +14,20 @@
 /// <reference path="objects/gradient.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/scoreboard.ts" />
-
+/// <reference path="logics/grid.ts" />
 
 
 /// <reference path="states/start.ts" />
 /// <reference path="states/instruction.ts" />
 /// <reference path="states/play.ts" />
+
+/// <reference path="objects/towers.ts" />
+/// <reference path="objects/goldtower.ts" />
+/// <reference path="objects/rocktower.ts" />
+/// <reference path="objects/icetower.ts" />
+/// <reference path="objects/firetower.ts" />
+
+
 
 
 
@@ -47,6 +55,12 @@ var startScreen: createjs.Bitmap;
 
 // Gane Variables
 var scoreBoard: objects.ScoreBoard;
+var towerName; 
+var cell: objects.Tower;
+var firetower: objects.Firetower;
+var grid: logic.Grid;
+var gridArray = [];
+var selectedTower = [];
 
 // Preloader Function
 function preload() {
@@ -90,6 +104,7 @@ function gameLoop()
 {
     stats.begin(); // Begin measuring
     //currentStateFunction.update();
+    currentStateFunction.update();
     stage.update();
     stats.end(); // end measuring
 }

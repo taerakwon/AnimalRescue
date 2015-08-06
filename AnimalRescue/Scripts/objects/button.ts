@@ -3,7 +3,6 @@
     export class Button extends createjs.Sprite {
         private image: string;
         private image1: string;
-
         // Constructor
 
         constructor(imageString: string, imageString1: string) {

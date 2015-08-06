@@ -8,10 +8,10 @@ module state {
         private moneyLabel: objects.Label;
         private level1Grass: createjs.Bitmap;
 
-        private fireTower: objects.Button;
-        private icetower: objects.Button;
-        private rocktower: objects.Button;
-        private goldtower: objects.Button;
+        private firetowerBtn: objects.Button;
+        private icetowerBtn: objects.Button;
+        private rocktowerBtn: objects.Button;
+        private goldtowerBtn: objects.Button;
 
         constructor() {
             this._Main();
@@ -19,13 +19,12 @@ module state {
 
         // Update Method
         public update() {
+            scoreBoard.update();
         }
 
 
         // Main method
-        private _Main() {
-            // Spawn Money
-            money = 100;           
+        private _Main() {                     
             
             // Create game container
             game = new createjs.Container();
@@ -34,8 +33,8 @@ module state {
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
             game.addChild(this.level1Background);
 
-            // Add Scoreboard
-            scoreBoard = new objects.ScoreBoard();
+            // Adding 6x4 grid to the game
+            grid = new logic.Grid();    
 
             // Add Grass
             this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level1Grass"));
@@ -44,28 +43,77 @@ module state {
             game.addChild(this.level1Grass);            
 
             // Add Tower Buttons
-            this.fireTower = new objects.Button("firetower", "firetowerDark");
-            this.fireTower.x = 60;
-            this.fireTower.y = 510;
-            game.addChild(this.fireTower);
 
-            this.icetower = new objects.Button("icetower", "icetowerDark");
-            this.icetower.x = 160;
-            this.icetower.y = 510;
-            game.addChild(this.icetower);
+            this.goldtowerBtn = new objects.Button("goldtower", "goldtowerDark");
+            this.goldtowerBtn.x = 60;
+            this.goldtowerBtn.y = 510;            
+            game.addChild(this.goldtowerBtn);      
+            this.goldtowerBtn.addEventListener("click", this._goldtowerBtn_Click);      
+                        
+            this.rocktowerBtn = new objects.Button("rocktower", "rocktowerDark");
+            this.rocktowerBtn.x = 160;
+            this.rocktowerBtn.y = 510;
+            game.addChild(this.rocktowerBtn);
+            this.rocktowerBtn.addEventListener("click", this._rocktowerBtn_Click);
 
-            this.rocktower = new objects.Button("rocktower", "rocktowerDark");
-            this.rocktower.x = 260;
-            this.rocktower.y = 510;
-            game.addChild(this.rocktower);
+            this.icetowerBtn = new objects.Button("icetower", "icetowerDark");
+            this.icetowerBtn.x = 260;
+            this.icetowerBtn.y = 510;
+            game.addChild(this.icetowerBtn);
+            this.icetowerBtn.addEventListener("click", this._icetowerBtn_Click);
 
-            this.goldtower = new objects.Button("goldtower", "goldtowerDark");
-            this.goldtower.x = 360;
-            this.goldtower.y = 510;
-            game.addChild(this.goldtower);
+            this.firetowerBtn = new objects.Button("firetower", "firetowerDark");
+            this.firetowerBtn.x = 360;
+            this.firetowerBtn.y = 510;
+            game.addChild(this.firetowerBtn);     
+            this.firetowerBtn.addEventListener("click", this._firetowerBtn_Click);
+
+            stage.on("click", grid.onClickEvent);
+            
+
+            // Add Scoreboard 
+            scoreBoard = new objects.ScoreBoard();
 
             // Add game container to stage
-            stage.addChild(game);
+            stage.addChild(game);       
         }
+
+        private _goldtowerBtn_Click(event: createjs.MouseEvent) {
+            if (scoreBoard.startMoney >= 50) {
+                selectedTower[0] = new objects.Goldtower("goldtower");
+            }
+            else if (scoreBoard.startMoney < 50) {
+                window.alert("Not enought money");
+            }
+        }
+
+        private _rocktowerBtn_Click(event: createjs.MouseEvent) {
+            if (scoreBoard.startMoney >= 50) {
+                selectedTower[0] = new objects.Rocktower("rocktower");
+            }
+            else if (scoreBoard.startMoney < 50) {
+                window.alert("Not enought money");
+            }            
+        }
+
+        private _icetowerBtn_Click(event: createjs.MouseEvent) {
+            if (scoreBoard.startMoney >= 100) {
+                selectedTower[0] = new objects.Icetower("icetower");
+            }
+            else if (scoreBoard.startMoney < 100) {
+                window.alert("Not enought money");
+            }                        
+        }
+
+        private _firetowerBtn_Click(event: createjs.MouseEvent) {
+            if (scoreBoard.startMoney >= 150) {
+                selectedTower[0] = new objects.Firetower("firetower"); 
+            }
+            else if (scoreBoard.startMoney < 150) {
+                window.alert("Not enought money");
+            }                                           
+        }
+
+        
     }
 }

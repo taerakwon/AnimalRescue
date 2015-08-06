@@ -6,6 +6,7 @@
         public buttonAtlas: createjs.SpriteSheet;
         public instructionAtlas: createjs.SpriteSheet;
         public background: createjs.SpriteSheet; // Sprites for background
+        public towerAtlas: createjs.SpriteSheet;
 
         // Image and Sound Manifest
         private manifest = [
@@ -61,6 +62,30 @@
             }
         };
 
+        private towerManifest = {
+            "images": [
+                "assets/images/towerAtlas.png"
+            ],
+
+            "frames": [
+                [2, 2, 100, 100, 0, 0, 0],
+                [104, 2, 76, 100, 0, -11, 0],
+                [182, 2, 85, 98, 0, -7, -2],
+                [269, 2, 100, 92, 0, 0, -2],
+                [371, 2, 89, 91, 0, -5, -6],
+                [269, 96, 1, 1, 0, 0, 0]
+            ],
+
+            "animations": {
+                "emptyDark": [0],
+                "firetower": [1],
+                "icetower": [2],
+                "rocktower": [3],
+                "goldtower": [4],
+                "empty": [5]
+            }
+        };
+
         // Default Constructor
         constructor() {
             this.init();
@@ -73,6 +98,7 @@
             this.loader.on("complete", init, this);
             this.loader.loadManifest(this.manifest);
             this.buttonAtlas = new createjs.SpriteSheet(this.buttonManifest);
+            this.towerAtlas = new createjs.SpriteSheet(this.towerManifest);
         }
 
     }
