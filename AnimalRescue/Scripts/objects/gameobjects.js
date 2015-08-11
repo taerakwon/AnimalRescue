@@ -10,7 +10,7 @@ var objects;
         __extends(GameObject, _super);
         // Constructor
         function GameObject(imageString) {
-            _super.call(this, assets.atlas, imageString);
+            _super.call(this, assets.loader.getResult(imageString));
             this.name = "";
             this.sound = "";
             this.isColliding = false;
@@ -18,7 +18,7 @@ var objects;
             this.height = this.getBounds().height;
         }
         return GameObject;
-    })(createjs.Sprite);
+    })(createjs.Bitmap);
     objects.GameObject = GameObject;
 })(objects || (objects = {}));
 //# sourceMappingURL=gameobjects.js.map

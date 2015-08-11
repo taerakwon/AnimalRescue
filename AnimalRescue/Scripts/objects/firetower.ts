@@ -16,5 +16,8 @@
         destroy() {
             game.removeChild(this);
         }
+
+        update() {
+        }
     }
 } 

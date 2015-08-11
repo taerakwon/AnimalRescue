@@ -2,7 +2,7 @@
     export class ScoreBoard {
         // PUBLIC PROPERTIES
         public score: number = 0;
-        public startMoney: number = 100;
+        public startMoney: number = 300;
 
         private scoreLabel: objects.Label;
         private moneyLabel: objects.Label;
@@ -17,7 +17,7 @@
 
         // PUBLIC METHODS +++++++++++++++++
         public update() {
-            this.moneyLabel.text = this.startMoney.toString();
+            this.moneyLabel.text = Math.round(this.startMoney).toString();
             this.scoreLabel.text = this.score.toString();
         }
     }

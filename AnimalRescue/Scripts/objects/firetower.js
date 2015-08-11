@@ -23,6 +23,8 @@ var objects;
         Firetower.prototype.destroy = function () {
             game.removeChild(this);
         };
+        Firetower.prototype.update = function () {
+        };
         return Firetower;
     })(objects.Tower);
     objects.Firetower = Firetower;

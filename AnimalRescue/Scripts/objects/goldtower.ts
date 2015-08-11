@@ -1,6 +1,7 @@
 ﻿module objects {
     // Firetower class
     export class Goldtower extends Tower {
+
         constructor(towerName: string) {
             super(towerName);
             this.name = "goldtower";
@@ -12,12 +13,17 @@
             this.isAvailable = true;
         }
 
-        update() {
+        update() {          
+            console.log("goldtower");
+            this._generateGold();
+        }
+
+        private _generateGold() {
+            scoreBoard.startMoney += 0.01;
         }
 
         destroy() {
             game.removeChild(this);
         }
-
     }
 }  

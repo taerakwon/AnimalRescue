@@ -6,21 +6,39 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Firetower class
+    // Firetower class    
+    var x;
+    var y;
     var Rocktower = (function (_super) {
         __extends(Rocktower, _super);
-        function Rocktower(towerName) {
+        function Rocktower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "rocktower";
             this.sound = "rocktower";
             this.cost = 50;
-            this.attackSpeed = 1;
             this.health = 100;
             this.damage = 75;
+            this.attackSpeed = 8;
             this.isAvailable = true;
+            rock = new objects.Rock;
+            this.x = x;
+            this.y = y;
+            rock.x = this.x + 40;
+            rock.y = this.y + 20;
+            rock.dx = this.attackSpeed;
         }
         Rocktower.prototype.destroy = function () {
             game.removeChild(this);
+        };
+        Rocktower.prototype.update = function () {
+            rock.update();
+            if (rock.x > 500) {
+                this.reset();
+            }
+        };
+        Rocktower.prototype.reset = function () {
+            rock.x = this.x + 20;
+            rock.y = this.y + 40;
         };
         return Rocktower;
     })(objects.Tower);

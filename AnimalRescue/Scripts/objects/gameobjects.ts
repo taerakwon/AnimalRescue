@@ -1,5 +1,5 @@
 ﻿module objects {
-    export class GameObject extends createjs.Sprite {
+    export class GameObject extends createjs.Bitmap {
 
         // Public properties
         public width: number;
@@ -16,7 +16,7 @@
 
         // Constructor
         constructor(imageString: string) {
-            super(assets.atlas, imageString);
+            super(assets.loader.getResult(imageString));
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
         }

@@ -20,6 +20,11 @@ var objects;
             this.isAvailable = true;
         }
         Goldtower.prototype.update = function () {
+            console.log("goldtower");
+            this._generateGold();
+        };
+        Goldtower.prototype._generateGold = function () {
+            scoreBoard.startMoney += 0.01;
         };
         Goldtower.prototype.destroy = function () {
             game.removeChild(this);

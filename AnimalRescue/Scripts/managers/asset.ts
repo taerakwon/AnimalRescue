@@ -8,6 +8,9 @@
         public background: createjs.SpriteSheet; // Sprites for background
         public towerAtlas: createjs.SpriteSheet;
         public bowhunterAtlas: createjs.SpriteSheet;
+        public knifehunterAtlas: createjs.SpriteSheet;
+        public riflehunterAtlas: createjs.SpriteSheet;
+
 
         // Image and Sound Manifest
         private manifest = [
@@ -15,7 +18,11 @@
             { id: "gradient", src: "assets/images/gradient.png" },
             { id: "introduction", src: "assets/images/introduction.png" },
             { id: "level1", src: "assets/images/level1.png" },
-            { id: "level1Grass", src: "assets/images/level1Grass.png" }
+            { id: "level1Grass", src: "assets/images/level1Grass.png" },
+            { id: "fire", src: "assets/images/fire.png" },
+            { id: "ice", src: "assets/images/ice.png" },
+            { id: "rock", src: "assets/images/rock.png" },
+            { id: "gold", src: "assets/images/gold.png" }
         ];
 
         private buttonManifest = {
@@ -112,6 +119,70 @@
             }
         };
 
+        private knifehunterManifest = {
+            "images": [
+                "assets/images/knifeHunterAtlas.png"
+            ],
+
+            "frames": [
+
+                [187, 2, 93, 91, 0, -7, -9],
+                [2, 2, 88, 93, 0, -12, -7],
+                [92, 2, 93, 92, 0, -7, -8],
+                [282, 2, 93, 91, 0, -7, -9],
+                [558, 2, 77, 90, 0, -8, -10],
+                [714, 2, 76, 87, 0, -8, -13],
+                [469, 2, 87, 91, 0, -8, -9],
+                [377, 2, 90, 91, 0, -9, -9],
+                [637, 2, 75, 90, 0, -8, -10]
+            ],
+
+            "animations": {
+
+                "ahunter02": [2],
+                "ahunter03": [0],
+                "ahunter04": [1],
+                "ahunter05": [3],
+                "ahunter06": [6],
+                "ahunter07": [8],
+                "ahunter08": [5],
+                "ahunter09": [4],
+                "ahunter10": [7]
+            }
+        };
+
+        private riflehunterManifest = {
+            "images": [
+                "assets/images/rifleHunterAtlas.png"
+            ],
+
+            "frames": [
+
+                [265, 2, 86, 91, 0, -14, -9],
+                [2, 2, 82, 93, 0, -18, -7],
+                [86, 2, 88, 92, 0, -12, -8],
+                [176, 2, 87, 91, 0, -13, -9],
+                [525, 2, 72, 90, 0, -13, -10],
+                [671, 2, 71, 87, 0, -13, -13],
+                [441, 2, 82, 91, 0, -13, -9],
+                [353, 2, 86, 91, 0, -13, -9],
+                [599, 2, 70, 90, 0, -13, -10]
+            ],
+
+            "animations": {
+                "rhunter02": [3],
+                "rhunter03": [0],
+                "rhunter04": [1],
+                "rhunter05": [2],
+                "rhunter06": [6],
+                "rhunter07": [8],
+                "rhunter08": [5],
+                "rhunter09": [4],
+                "rhunter10": [7]
+            }
+        };
+
+
 
 
         // Default Constructor
@@ -128,6 +199,8 @@
             this.buttonAtlas = new createjs.SpriteSheet(this.buttonManifest);
             this.towerAtlas = new createjs.SpriteSheet(this.towerManifest);
             this.bowhunterAtlas = new createjs.SpriteSheet(this.bowhunterManifest);
+            this.knifehunterAtlas = new createjs.SpriteSheet(this.knifehunterManifest);
+            this.riflehunterAtlas = new createjs.SpriteSheet(this.riflehunterManifest);
         }
 
     }
