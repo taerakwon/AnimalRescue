@@ -12,11 +12,12 @@ var state;
         Play.prototype.update = function () {
             scoreBoard.update();
             this._hunterUpdate();
+            this._towersUpdate();
         };
         // Main method
         Play.prototype._Main = function () {
             // Create game container
-            game = new createjs.Container();
+            game = new createjs.Container;
             // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
             game.addChild(this.level1Background);
@@ -50,7 +51,7 @@ var state;
             for (var i = 0; i < 10; i++) {
                 this.bowhunter = new objects.Bowhunter("hunter");
                 this.bowhunter.x = 800 + (200 * i);
-                this.bowhunter.dx = -2;
+                this.bowhunter.dx = -0.5;
                 this.bowhunter.y = 100 + (100 * Math.floor((Math.random() * 4)));
                 hunters.push(this.bowhunter);
                 game.addChild(hunters[i]);
@@ -73,7 +74,7 @@ var state;
         };
         Play.prototype._rocktowerBtn_Click = function (event) {
             if (scoreBoard.startMoney >= 50) {
-                selectedTower[0] = new objects.Rocktower("rocktower");
+                selectedTower[0] = "rocktower";
             }
             else if (scoreBoard.startMoney < 50) {
                 window.alert("Not enought money");
@@ -81,7 +82,7 @@ var state;
         };
         Play.prototype._icetowerBtn_Click = function (event) {
             if (scoreBoard.startMoney >= 100) {
-                selectedTower[0] = new objects.Icetower("icetower");
+                selectedTower[0] = "icetower";
             }
             else if (scoreBoard.startMoney < 100) {
                 window.alert("Not enought money");
@@ -89,7 +90,7 @@ var state;
         };
         Play.prototype._firetowerBtn_Click = function (event) {
             if (scoreBoard.startMoney >= 150) {
-                selectedTower[0] = new objects.Firetower("firetower");
+                selectedTower[0] = "firetower";
             }
             else if (scoreBoard.startMoney < 150) {
                 window.alert("Not enought money");
@@ -106,6 +107,16 @@ var state;
             hunters[7].update();
             hunters[8].update();
             hunters[9].update();
+        };
+        Play.prototype._towersUpdate = function () {
+            if (placedTower.length > 0) {
+                for (var index in placedTower) {
+                    placedTower[index].update();
+                }
+            }
+        };
+        Play.prototype._destroy = function () {
+            game.removeAllChildren();
         };
         return Play;
     })();

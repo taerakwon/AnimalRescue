@@ -11,7 +11,7 @@ var state;
         // Main method
         Start.prototype._main = function () {
             // Instantiate new game container
-            game = new createjs.Container();
+            //game = new createjs.Container();
             // Add gradient
             gradient = new objects.Gradient(assets.loader.getResult("gradient"));
             game.addChild(gradient);

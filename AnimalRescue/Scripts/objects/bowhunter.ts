@@ -3,7 +3,6 @@
     // Bow hunter class 
     export class Bowhunter extends createjs.Sprite
     {
-        game: createjs.Container;
         dx: number;
         damage: number = 25;
         health: number = 300;
@@ -16,11 +15,13 @@
             this.x += this.dx;
             if (this.x == 50) {
                 this.destroy();
+                currentState = config.START_STATE;
+                changeState();
             }
         }
 
         destroy() {
-            game.removeChild(this);
+            game.removeAllChildren();
         }
 
     }

@@ -27,7 +27,14 @@
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
 
+/// <reference path="objects/rock.ts" />
+
+
+
+
 /// <reference path="objects/bowhunter.ts" />
+/// <reference path="objects/knifehunter.ts" />
+/// <reference path="objects/riflehunter.ts" />
 
 
 
@@ -55,14 +62,25 @@ var play: state.Play;
 var gradient: objects.Gradient;
 var startScreen: createjs.Bitmap;
 
-// Gane Variables
+
+// Game Towers
+var fireTower: objects.Firetower;
+var goldTower: objects.Goldtower;
+var rockTower: objects.Rocktower;
+var iceTower: objects.Icetower;
+
+
+var rock: objects.Rock;
+
+// Game Variables
 var scoreBoard: objects.ScoreBoard;
 var towerName; 
 var cell: objects.Tower;
-var firetower: objects.Firetower;
 var grid: logic.Grid;
 var gridArray = [];
 var selectedTower = [];
+var placedTower = [];
+var goldTowerBuilt: number = 0;
 
 // Preloader Function
 function preload() {
@@ -79,7 +97,7 @@ function init()
     createjs.Ticker.setFPS(60); // framerate 60 fps for the game
     // event listener triggers 60 times every second
     createjs.Ticker.on("tick", gameLoop); 
-
+    
     // Sets the current state
     currentState = config.START_STATE;
 
@@ -112,14 +130,14 @@ function gameLoop()
 }
 
 // Main Game Function
-function changeState() {
-    // Instantiate new game container
+function changeState(){
+    // Instantiate new game container    
     game = new createjs.Container();
 
     // State Machine
     switch (currentState) {
         case config.START_STATE:
-            // Instantiate start state            
+            // Instantiate start state       
             start = new state.Start();
             currentStateFunction = start;
             break;
@@ -133,7 +151,7 @@ function changeState() {
             play = new state.Play();
             currentStateFunction = play;
             break;
-    }
+    }    
 
     // Add game container to stage
     stage.addChild(game);

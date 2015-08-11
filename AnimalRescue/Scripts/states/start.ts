@@ -16,7 +16,7 @@
         // Main method
         private _main() {
             // Instantiate new game container
-            game = new createjs.Container();
+            //game = new createjs.Container();
 
             // Add gradient
             gradient = new objects.Gradient(assets.loader.getResult("gradient"))

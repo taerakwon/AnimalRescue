@@ -13,7 +13,6 @@ module state {
         private icetowerBtn: objects.Button;
         private rocktowerBtn: objects.Button;
         private goldtowerBtn: objects.Button;
-
         private bowhunter: objects.Bowhunter;
 
         constructor() {
@@ -24,16 +23,17 @@ module state {
         public update() {
             scoreBoard.update();
             this._hunterUpdate();
+            this._towersUpdate();
         }
 
 
         // Main method
-        private _Main() {                     
-            
+        private _Main() {
+           
             // Create game container
-            game = new createjs.Container();
+            game = new createjs.Container;
 
-            // Instatiate level1Background
+                        // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
             game.addChild(this.level1Background);
 
@@ -66,8 +66,8 @@ module state {
             game.addChild(this.firetowerBtn);     
             this.firetowerBtn.addEventListener("click", this._firetowerBtn_Click);
 
-            stage.on("click", grid.onClickEvent);                   
-
+            stage.on("click", grid.onClickEvent);                  
+            
             // Add Scoreboard 
             scoreBoard = new objects.ScoreBoard();
 
@@ -75,7 +75,7 @@ module state {
             for (var i = 0; i < 10; i++) {
                 this.bowhunter = new objects.Bowhunter("hunter");
                 this.bowhunter.x = 800+(200*i);
-                this.bowhunter.dx = -2;          
+                this.bowhunter.dx = -0.5;          
                 this.bowhunter.y = 100 + (100 * Math.floor((Math.random() * 4)));                
                 hunters.push(this.bowhunter);     
                 game.addChild(hunters[i]);
@@ -86,7 +86,7 @@ module state {
             this.level1Grass.x = 700;
             this.level1Grass.y = 100;
             game.addChild(this.level1Grass);   
-
+                        
             // Add game container to stage
             stage.addChild(game);       
         }
@@ -102,7 +102,7 @@ module state {
 
         private _rocktowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 50) {
-                selectedTower[0] = new objects.Rocktower("rocktower");
+                selectedTower[0] = "rocktower";
             }
             else if (scoreBoard.startMoney < 50) {
                 window.alert("Not enought money");
@@ -111,7 +111,7 @@ module state {
 
         private _icetowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 100) {
-                selectedTower[0] = new objects.Icetower("icetower");
+                selectedTower[0] = "icetower";
             }
             else if (scoreBoard.startMoney < 100) {
                 window.alert("Not enought money");
@@ -120,7 +120,7 @@ module state {
 
         private _firetowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 150) {
-                selectedTower[0] = new objects.Firetower("firetower"); 
+                selectedTower[0] = "firetower"; 
             }
             else if (scoreBoard.startMoney < 150) {
                 window.alert("Not enought money");
@@ -140,6 +140,18 @@ module state {
             hunters[9].update();
         }
 
+        private _towersUpdate() {
+            if (placedTower.length > 0) {
+                for (var index in placedTower) {
+                    placedTower[index].update();
+                }
+            }
+        }
+
+
+        private _destroy() {
+            game.removeAllChildren();
+        }
         
     }
 }

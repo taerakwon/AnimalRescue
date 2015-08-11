@@ -21,7 +21,10 @@
 /// <reference path="objects/rocktower.ts" />
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
+/// <reference path="objects/rock.ts" />
 /// <reference path="objects/bowhunter.ts" />
+/// <reference path="objects/knifehunter.ts" />
+/// <reference path="objects/riflehunter.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;
@@ -38,14 +41,21 @@ var play;
 // Background Variables
 var gradient;
 var startScreen;
-// Gane Variables
+// Game Towers
+var fireTower;
+var goldTower;
+var rockTower;
+var iceTower;
+var rock;
+// Game Variables
 var scoreBoard;
 var towerName;
 var cell;
-var firetower;
 var grid;
 var gridArray = [];
 var selectedTower = [];
+var placedTower = [];
+var goldTowerBuilt = 0;
 // Preloader Function
 function preload() {
     assets = new managers.Assets();
@@ -84,12 +94,12 @@ function gameLoop() {
 }
 // Main Game Function
 function changeState() {
-    // Instantiate new game container
+    // Instantiate new game container    
     game = new createjs.Container();
     // State Machine
     switch (currentState) {
         case config.START_STATE:
-            // Instantiate start state            
+            // Instantiate start state       
             start = new state.Start();
             currentStateFunction = start;
             break;
