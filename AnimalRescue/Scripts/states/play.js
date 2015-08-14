@@ -25,6 +25,7 @@ var state;
         };
         // Main method
         Play.prototype._Main = function () {
+            this._destroy();
             // Create game container
             game = new createjs.Container;
             // Instatiate level1Background
@@ -60,7 +61,7 @@ var state;
             for (var i = 0; i < 10; i++) {
                 bowhunter[i] = new objects.Bowhunter("hunter");
                 bowhunter[i].x = 800 + (200 * i);
-                bowhunter[i].dx = -0.5;
+                bowhunter[i].dx = -5;
                 bowhunter[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunter[i]);
             }

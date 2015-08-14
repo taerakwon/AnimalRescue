@@ -17,13 +17,13 @@
 
 
             // Add introduction 
-            this.end = new createjs.Bitmap(assets.loader.getResult("gameover"));
+            this.end = new createjs.Bitmap(assets.loader.getResult("gameOver"));
             game.addChild(this.end);
 
             // Add back button
             this.startArrow = new objects.Button("arrowred", "arroworange");
-            this.startArrow.x = 625;
-            this.startArrow.y = 25;
+            this.startArrow.x = 330;
+            this.startArrow.y = 330;
             game.addChild(this.startArrow);
             this.startArrow.on("click", this._startArrowClick, this);
 

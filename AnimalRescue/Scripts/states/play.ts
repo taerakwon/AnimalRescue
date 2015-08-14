@@ -43,16 +43,17 @@ module state {
 
         // Main method
         private _Main() {
+            this._destroy();
            
             // Create game container
             game = new createjs.Container;
-
-                        // Instatiate level1Background
+               
+            // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
             game.addChild(this.level1Background);
 
             // Adding 6x4 grid to the game
-            grid = new logic.Grid();                         
+            grid = new logic.Grid();                                            
 
             // Add Tower Buttons
 
@@ -84,12 +85,12 @@ module state {
             
             // Add Scoreboard 
             scoreBoard = new objects.ScoreBoard();
-
+            
             // Add Bowhunter
             for (var i = 0; i < 10; i++) {
                 bowhunter[i] = new objects.Bowhunter("hunter");
                 bowhunter[i].x = 800+(200*i);
-                bowhunter[i].dx = -0.5;          
+                bowhunter[i].dx = -5;          
                 bowhunter[i].y = 100 + (100 * Math.floor((Math.random() * 4)));                    
                 game.addChild(bowhunter[i]);
             }

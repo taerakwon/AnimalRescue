@@ -1,9 +1,8 @@
 ﻿module logic {
-    var generated: boolean = false;
-    game = new createjs.Container();
+    var generated: boolean = false;    
     export class Grid {
-        
-        constructor() {            
+        constructor() {
+            gridArray = [];         
             this._gridGenerator();
         }
 
@@ -1041,6 +1040,11 @@
             
                 
         }            
+        // Destroy Method
+        private _destroy() {
+            game.removeAllChildren();
+        }
     }
+    
             
 }

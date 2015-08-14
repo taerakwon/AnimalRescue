@@ -15,7 +15,7 @@
             this.x += this.dx;
             if (this.x == 50) {
                 this.destroy();
-                currentState = config.START_STATE;
+                currentState = config.END_STATE;
                 changeState();
             }
         }

@@ -1,9 +1,9 @@
 var logic;
 (function (logic) {
     var generated = false;
-    game = new createjs.Container();
     var Grid = (function () {
         function Grid() {
+            gridArray = [];
             this._gridGenerator();
         }
         Grid.prototype.update = function () {
@@ -1008,6 +1008,10 @@ var logic;
                     console.log("CANNOT BUILD");
                 }
             });
+        };
+        // Destroy Method
+        Grid.prototype._destroy = function () {
+            game.removeAllChildren();
         };
         return Grid;
     })();
