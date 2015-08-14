@@ -23,8 +23,10 @@
             { id: "ice", src: "assets/images/ice.png" },
             { id: "rock", src: "assets/images/rock.png" },
             { id: "gold", src: "assets/images/gold.png" },
-            { id: "gameOver", src: "assets/images/gameover.png" }
+            { id: "gameOver", src: "assets/images/gameover.png" },
             //sounds
+            { id: "click", src: "assets/audio/click.mp3" },
+            { id: "bgm", src: "assets/audio/bgm.mp3" }
 
         ];
 

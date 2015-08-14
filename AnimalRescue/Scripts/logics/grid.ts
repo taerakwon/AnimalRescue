@@ -2,6 +2,7 @@
     var generated: boolean = false;
     game = new createjs.Container();
     export class Grid {
+        
         constructor() {            
             this._gridGenerator();
         }
@@ -47,10 +48,11 @@
 
         public onClickEvent(event: createjs.MouseEvent) {                       
             var tower; 
+            
             // First row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[0][0].on("click", function (event: createjs.MouseEvent) {
-                
+                createjs.Sound.play("click");                
                 if (gridArray[0][0].name == "empty") {
                     if (selectedTower != "empty") {                        
                         switch (selectedTower) {
@@ -91,6 +93,7 @@
             });
 
             gridArray[0][1].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 var tower;
                 if (gridArray[0][1].name == "empty") {
                     if (selectedTower != "empty") {
@@ -132,6 +135,7 @@
             });
             
             gridArray[0][2].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[0][2].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -172,6 +176,7 @@
             });
 
             gridArray[0][3].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[0][3].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -212,6 +217,7 @@
             });
 
             gridArray[0][4].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[0][4].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -252,6 +258,7 @@
             });
 
             gridArray[0][5].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[0][5].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -294,6 +301,7 @@
             // Second row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[1][0].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][0].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -334,6 +342,7 @@
             });
 
             gridArray[1][1].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][1].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -373,6 +382,7 @@
                 }
             });
             gridArray[1][2].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][2].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -413,6 +423,7 @@
             });
 
             gridArray[1][3].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][3].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -453,6 +464,7 @@
             });
 
             gridArray[1][4].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][4].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -493,6 +505,7 @@
             });
 
             gridArray[1][5].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[1][5].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -535,6 +548,7 @@
             // Third row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[2][0].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][0].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -575,6 +589,7 @@
             });
 
             gridArray[2][1].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][1].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -614,6 +629,7 @@
                 }
             });
             gridArray[2][2].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][2].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -654,6 +670,7 @@
             });
 
             gridArray[2][3].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][3].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -694,6 +711,7 @@
             });
 
             gridArray[2][4].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][4].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -734,6 +752,7 @@
             });
 
             gridArray[2][5].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[2][5].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -776,6 +795,7 @@
             // Fourth row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[3][0].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][0].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -816,6 +836,7 @@
             });
 
             gridArray[3][1].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][1].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -855,6 +876,7 @@
                 }
             });
             gridArray[3][2].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][2].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -895,6 +917,7 @@
             });
 
             gridArray[3][3].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][3].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -935,6 +958,7 @@
             });
 
             gridArray[3][4].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][4].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {
@@ -975,6 +999,7 @@
             });
 
             gridArray[3][5].on("click", function (event: createjs.MouseEvent) {
+                createjs.Sound.play("click");
                 if (gridArray[3][5].name == "empty") {
                     if (selectedTower != "empty") {
                         switch (selectedTower) {

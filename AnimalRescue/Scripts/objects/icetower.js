@@ -21,6 +21,9 @@ var objects;
             this.y = y;
             this.isAvailable = true;
             var slow = 10;
+            var ice;
+            ice = new objects.Missle("ice", this.x + 40, this.y + 40, this.attackSpeed);
+            missleArray.push(ice);
         }
         Icetower.prototype.destroy = function () {
             game.removeChild(this);

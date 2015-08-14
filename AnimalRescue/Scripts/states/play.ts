@@ -37,6 +37,7 @@ module state {
             for (var missle = 0; missle < missleArray.length; missle++) {
                 missleArray[missle].update();
             }
+
         }
 
 

@@ -1,6 +1,7 @@
 ﻿module state {    
     // Start state class
     export class Start {        
+        bgm: createjs.AbstractSoundInstance;
         private startButton: objects.Button;
         private instructionButton: objects.Button;
         
@@ -14,7 +15,8 @@
         }
 
         // Main method
-        private _main() {
+        private _main() {            
+            
             // Instantiate new game container
             //game = new createjs.Container();
 
@@ -25,6 +27,9 @@
             // Add start menu screen to stage
             startScreen = new createjs.Bitmap(assets.loader.getResult("startScreen"));
             game.addChild(startScreen);
+
+            // Play BGM
+            this.bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0); 
 
             // Add buttons to stage
             this.startButton = new objects.Button("startorange", "startred");
@@ -60,6 +65,7 @@
         // Play Method
         private _playClick(event: createjs.MouseEvent) {
             this._destroy();
+            this.bgm.destroy();
             currentState = config.PLAY_STATE;
             changeState();
             this.startButton.off("click", this._playClick);

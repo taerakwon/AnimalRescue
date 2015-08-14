@@ -16,6 +16,7 @@
 /// <reference path="states/start.ts" />
 /// <reference path="states/instruction.ts" />
 /// <reference path="states/play.ts" />
+/// <reference path="states/end.ts" />
 /// <reference path="objects/towers.ts" />
 /// <reference path="objects/goldtower.ts" />
 /// <reference path="objects/rocktower.ts" />
@@ -38,6 +39,7 @@ var currentState;
 var start;
 var instruction;
 var play;
+var end;
 // Background Variables
 var gradient;
 var startScreen;
@@ -119,6 +121,11 @@ function changeState() {
             // Instantiate play state
             play = new state.Play();
             currentStateFunction = play;
+            break;
+        case config.END_STATE:
+            // Instantiate end state
+            end = new state.End();
+            currentStateFunction = end;
             break;
     }
     // Add game container to stage

@@ -59,6 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\bgm.mp3" />
+    <Content Include="assets\audio\click.mp3" />
     <Content Include="assets\images\bowhunterAtlas.png" />
     <Content Include="assets\images\buttonAtlas.png" />
     <Content Include="assets\images\empty.png" />
@@ -103,7 +105,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\audio\" />
     <Folder Include="assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,7 @@
     <TypeScriptCompile Include="Scripts\objects\rocktower.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\towers.ts" />
+    <TypeScriptCompile Include="Scripts\states\end.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\states\start.ts" />

@@ -27,7 +27,7 @@ var objects;
             this._generateGold();
         };
         Goldtower.prototype._generateGold = function () {
-            scoreBoard.startMoney += 0.01;
+            scoreBoard.startMoney += 0.02;
         };
         Goldtower.prototype.destroy = function () {
             game.removeChild(this);

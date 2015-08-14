@@ -18,6 +18,8 @@ var state;
             // Add start menu screen to stage
             startScreen = new createjs.Bitmap(assets.loader.getResult("startScreen"));
             game.addChild(startScreen);
+            // Play BGM
+            this.bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
             // Add buttons to stage
             this.startButton = new objects.Button("startorange", "startred");
             this.startButton.x = 370;
@@ -46,6 +48,7 @@ var state;
         // Play Method
         Start.prototype._playClick = function (event) {
             this._destroy();
+            this.bgm.destroy();
             currentState = config.PLAY_STATE;
             changeState();
             this.startButton.off("click", this._playClick);

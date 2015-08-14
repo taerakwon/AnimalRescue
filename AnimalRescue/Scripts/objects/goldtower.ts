@@ -22,7 +22,7 @@
         }
 
         private _generateGold() {
-            scoreBoard.startMoney += 0.01;
+            scoreBoard.startMoney += 0.02;
         }
 
         destroy() {
