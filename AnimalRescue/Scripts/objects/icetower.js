@@ -9,7 +9,7 @@ var objects;
     // Firetower class
     var Icetower = (function (_super) {
         __extends(Icetower, _super);
-        function Icetower(towerName) {
+        function Icetower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "icetower";
             this.sound = "icetower";
@@ -17,6 +17,8 @@ var objects;
             this.attackSpeed = 2;
             this.health = 200;
             this.damage = 50;
+            this.x = x;
+            this.y = y;
             this.isAvailable = true;
             var slow = 10;
         }

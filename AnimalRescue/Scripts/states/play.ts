@@ -1,7 +1,6 @@
 ﻿// Play state
 module state {
     var money: number;
-    var hunters = [];
     var timer: number;
 
     export class Play {
@@ -22,8 +21,22 @@ module state {
         // Update Method
         public update() {
             scoreBoard.update();
-            this._hunterUpdate();
-            this._towersUpdate();
+
+            for (var hunter = 0; hunter < 10; hunter++) {
+                bowhunter[hunter].update();
+            }
+
+            for (var tower = 0; tower < goldTowerArray.length; tower++) {
+                goldTowerArray[tower].update();
+            }
+
+            for (var tower = 0; tower < rockTowerArray.length; tower++) {
+                rockTowerArray[tower].update();
+            }
+
+            for (var missle = 0; missle < missleArray.length; missle++) {
+                missleArray[missle].update();
+            }
         }
 
 
@@ -73,12 +86,11 @@ module state {
 
             // Add Bowhunter
             for (var i = 0; i < 10; i++) {
-                this.bowhunter = new objects.Bowhunter("hunter");
-                this.bowhunter.x = 800+(200*i);
-                this.bowhunter.dx = -0.5;          
-                this.bowhunter.y = 100 + (100 * Math.floor((Math.random() * 4)));                
-                hunters.push(this.bowhunter);     
-                game.addChild(hunters[i]);
+                bowhunter[i] = new objects.Bowhunter("hunter");
+                bowhunter[i].x = 800+(200*i);
+                bowhunter[i].dx = -0.5;          
+                bowhunter[i].y = 100 + (100 * Math.floor((Math.random() * 4)));                    
+                game.addChild(bowhunter[i]);
             }
 
             // Add Grass
@@ -91,55 +103,48 @@ module state {
             stage.addChild(game);       
         }
 
+        // Method when gold tower button has been clicked
         private _goldtowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 50) {
-                selectedTower[0] = new objects.Goldtower("goldtower");
+                selectedTower = "goldtower";
             }
             else if (scoreBoard.startMoney < 50) {
                 window.alert("Not enought money");
             }
         }
 
+        // Method when rock tower button has been clicked
         private _rocktowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 50) {
-                selectedTower[0] = "rocktower";
+                selectedTower = "rocktower";
             }
             else if (scoreBoard.startMoney < 50) {
                 window.alert("Not enought money");
             }            
         }
 
+        // Method when ice tower button has been clicked
         private _icetowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 100) {
-                selectedTower[0] = "icetower";
+                selectedTower = "icetower";
             }
             else if (scoreBoard.startMoney < 100) {
                 window.alert("Not enought money");
             }                        
         }
 
+        // Method when fire tower button has been clicked
         private _firetowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 150) {
-                selectedTower[0] = "firetower"; 
+                selectedTower = "firetower"; 
             }
             else if (scoreBoard.startMoney < 150) {
                 window.alert("Not enought money");
             }                                           
         }
 
-        private _hunterUpdate() {
-            hunters[0].update();
-            hunters[1].update();
-            hunters[2].update();
-            hunters[3].update();
-            hunters[4].update();
-            hunters[5].update();
-            hunters[6].update();
-            hunters[7].update();
-            hunters[8].update();
-            hunters[9].update();
-        }
-
+        // Method to update each towers in placedTower array
+        /*
         private _towersUpdate() {
             if (placedTower.length > 0) {
                 for (var index in placedTower) {
@@ -147,6 +152,7 @@ module state {
                 }
             }
         }
+        */
 
 
         private _destroy() {

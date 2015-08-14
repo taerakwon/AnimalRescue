@@ -6,9 +6,7 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Firetower class    
-    var x;
-    var y;
+    // Rocktower class    
     var Rocktower = (function (_super) {
         __extends(Rocktower, _super);
         function Rocktower(towerName, x, y) {
@@ -20,25 +18,17 @@ var objects;
             this.damage = 75;
             this.attackSpeed = 8;
             this.isAvailable = true;
-            rock = new objects.Rock;
             this.x = x;
             this.y = y;
-            rock.x = this.x + 40;
-            rock.y = this.y + 20;
-            rock.dx = this.attackSpeed;
+            towerBuilt += 1;
+            var rock;
+            rock = new objects.Missle("rock", this.x + 40, this.y + 40, this.attackSpeed);
+            missleArray.push(rock);
         }
         Rocktower.prototype.destroy = function () {
             game.removeChild(this);
         };
         Rocktower.prototype.update = function () {
-            rock.update();
-            if (rock.x > 500) {
-                this.reset();
-            }
-        };
-        Rocktower.prototype.reset = function () {
-            rock.x = this.x + 20;
-            rock.y = this.y + 40;
         };
         return Rocktower;
     })(objects.Tower);

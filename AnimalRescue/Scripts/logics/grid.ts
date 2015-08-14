@@ -1,7 +1,8 @@
 ﻿module logic {
     var generated: boolean = false;
-    export class Grid {        
-        constructor() {
+    game = new createjs.Container();
+    export class Grid {
+        constructor() {            
             this._gridGenerator();
         }
 
@@ -44,32 +45,41 @@
             generated = true;
         }
 
-        public onClickEvent(event: createjs.MouseEvent) {           
-               
+        public onClickEvent(event: createjs.MouseEvent) {                       
+            var tower; 
             // First row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            gridArray[0][0].on("click", function (event: createjs.MouseEvent) {                
+            gridArray[0][0].on("click", function (event: createjs.MouseEvent) {
+                
                 if (gridArray[0][0].name == "empty") {
-                    if (selectedTower[0] != "empty") {                        
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {                        
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][0].x, gridArray[0][0].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][0].x, gridArray[0][0].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][0].x, gridArray[0][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][0].x, gridArray[0][0].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][0].x, gridArray[0][0].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;                                
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][0].x;
-                        selectedTower[0].y = gridArray[0][0].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;                        
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);
-                        gridArray[0][0].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower= "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -81,27 +91,36 @@
             });
 
             gridArray[0][1].on("click", function (event: createjs.MouseEvent) {
+                var tower;
                 if (gridArray[0][1].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][1].x, gridArray[0][1].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][1].x, gridArray[0][1].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][1].x, gridArray[0][1].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][1].x, gridArray[0][1].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][1].x, gridArray[0][1].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][1].x;
-                        selectedTower[0].y = gridArray[0][1].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);                
-                        placedTower.push(selectedTower[0]);        
-                        gridArray[0][1].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -111,29 +130,37 @@
                     console.log("CANNOT BUILD");
                 }
             });
-
+            
             gridArray[0][2].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[0][2].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][2].x, gridArray[0][2].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][2].x, gridArray[0][2].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][2].x, gridArray[0][2].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][2].x, gridArray[0][2].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][2].x, gridArray[0][2].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][2].x;
-                        selectedTower[0].y = gridArray[0][2].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[0][2].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -146,32 +173,39 @@
 
             gridArray[0][3].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[0][3].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][3].x, gridArray[0][3].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][3].x, gridArray[0][3].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][3].x, gridArray[0][3].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][3].x, gridArray[0][3].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][3].x, gridArray[0][3].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][3].x;
-                        selectedTower[0].y = gridArray[0][3].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[0][3].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
                     }
                 }
-                
                 else {
                     console.log("CANNOT BUILD");
                 }
@@ -179,26 +213,34 @@
 
             gridArray[0][4].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[0][4].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][4].x, gridArray[0][4].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][4].x, gridArray[0][4].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][4].x, gridArray[0][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][4].x, gridArray[0][4].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][4].x, gridArray[0][4].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][4].x;
-                        selectedTower[0].y = gridArray[0][4].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);
-                        gridArray[0][4].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -211,26 +253,34 @@
 
             gridArray[0][5].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[0][5].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[0][5].x, gridArray[0][5].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[0][5].x, gridArray[0][5].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[0][5].x, gridArray[0][5].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[0][5].x, gridArray[0][5].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[0][5].x, gridArray[0][5].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[0][5].x;
-                        selectedTower[0].y = gridArray[0][5].y;
-                        var money = scoreBoard.startMoney; 
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[0][5].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -241,31 +291,38 @@
                 }
             });
 
-
             // Second row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[1][0].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][0].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][0].x, gridArray[1][0].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][0].x, gridArray[1][0].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][0].x, gridArray[1][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][0].x, gridArray[1][0].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][0].x, gridArray[1][0].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][0].x;
-                        selectedTower[0].y = gridArray[1][0].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][0].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -278,26 +335,34 @@
 
             gridArray[1][1].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][1].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][1].x, gridArray[1][1].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][1].x, gridArray[1][1].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][1].x, gridArray[1][1].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][1].x, gridArray[1][1].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][1].x, gridArray[1][1].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][1].x;
-                        selectedTower[0].y = gridArray[1][1].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][1].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -307,29 +372,36 @@
                     console.log("CANNOT BUILD");
                 }
             });
-
             gridArray[1][2].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][2].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][2].x, gridArray[1][2].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][2].x, gridArray[1][2].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][2].x, gridArray[1][2].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][2].x, gridArray[1][2].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][2].x, gridArray[1][2].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][2].x;
-                        selectedTower[0].y = gridArray[1][2].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][2].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -342,26 +414,34 @@
 
             gridArray[1][3].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][3].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][3].x, gridArray[1][3].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][3].x, gridArray[1][3].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][3].x, gridArray[1][3].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][3].x, gridArray[1][3].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][3].x, gridArray[1][3].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][3].x;
-                        selectedTower[0].y = gridArray[1][3].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][3].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -374,26 +454,34 @@
 
             gridArray[1][4].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][4].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][4].x, gridArray[1][4].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][4].x, gridArray[1][4].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][4].x, gridArray[1][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][4].x, gridArray[1][4].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][4].x, gridArray[1][4].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][4].x;
-                        selectedTower[0].y = gridArray[1][4].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][4].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -406,26 +494,34 @@
 
             gridArray[1][5].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[1][5].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[1][5].x, gridArray[1][5].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[1][5].x, gridArray[1][5].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[1][5].x, gridArray[1][5].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[1][5].x, gridArray[1][5].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[1][5].x, gridArray[1][5].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[1][5].x;
-                        selectedTower[0].y = gridArray[1][5].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[1][5].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -436,31 +532,38 @@
                 }
             });
 
-
             // Third row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[2][0].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][0].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][0].x, gridArray[2][0].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][0].x, gridArray[2][0].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][0].x, gridArray[2][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][0].x, gridArray[2][0].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][0].x, gridArray[2][0].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][0].x;
-                        selectedTower[0].y = gridArray[2][0].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][0].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -473,26 +576,34 @@
 
             gridArray[2][1].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][1].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][1].x, gridArray[2][1].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][1].x, gridArray[2][1].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][1].x, gridArray[2][1].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][1].x, gridArray[2][1].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][1].x, gridArray[2][1].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][1].x;
-                        selectedTower[0].y = gridArray[2][1].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][1].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -502,29 +613,36 @@
                     console.log("CANNOT BUILD");
                 }
             });
-
             gridArray[2][2].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][2].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][2].x, gridArray[2][2].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][2].x, gridArray[2][2].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][2].x, gridArray[2][2].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][2].x, gridArray[2][2].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][2].x, gridArray[2][2].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][2].x;
-                        selectedTower[0].y = gridArray[2][2].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][2].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -537,26 +655,34 @@
 
             gridArray[2][3].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][3].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][3].x, gridArray[2][3].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][3].x, gridArray[2][3].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][3].x, gridArray[2][3].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][3].x, gridArray[2][3].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][3].x, gridArray[2][3].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][3].x;
-                        selectedTower[0].y = gridArray[2][3].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][3].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -569,26 +695,34 @@
 
             gridArray[2][4].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][4].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][4].x, gridArray[2][4].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][4].x, gridArray[2][4].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][4].x, gridArray[2][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][4].x, gridArray[2][4].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][4].x, gridArray[2][4].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][4].x;
-                        selectedTower[0].y = gridArray[2][4].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][4].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -601,26 +735,34 @@
 
             gridArray[2][5].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[2][5].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[2][5].x, gridArray[2][5].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[2][5].x, gridArray[2][5].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[2][5].x, gridArray[2][5].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[2][5].x, gridArray[2][5].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[2][5].x, gridArray[2][5].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[2][5].x;
-                        selectedTower[0].y = gridArray[2][5].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[2][5].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -629,33 +771,40 @@
                 else {
                     console.log("CANNOT BUILD");
                 }
-            });
-            
+            }); 
             
             // Fourth row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             gridArray[3][0].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[3][0].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][0].x, gridArray[3][0].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][0].x, gridArray[3][0].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][0].x, gridArray[3][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][0].x, gridArray[3][0].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][0].x, gridArray[3][0].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][0].x;
-                        selectedTower[0].y = gridArray[3][0].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][0].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -668,26 +817,34 @@
 
             gridArray[3][1].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[3][1].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][1].x, gridArray[3][1].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][1].x, gridArray[3][1].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][1].x, gridArray[3][1].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][1].x, gridArray[3][1].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][1].x, gridArray[3][1].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][1].x;
-                        selectedTower[0].y = gridArray[3][1].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][1].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -697,29 +854,36 @@
                     console.log("CANNOT BUILD");
                 }
             });
-
             gridArray[3][2].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[3][2].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][2].x, gridArray[3][2].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][2].x, gridArray[3][2].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][2].x, gridArray[3][2].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][2].x, gridArray[3][2].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][2].x, gridArray[3][2].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][2].x;
-                        selectedTower[0].y = gridArray[3][2].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][2].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -732,26 +896,34 @@
 
             gridArray[3][3].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[3][3].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][3].x, gridArray[3][3].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][3].x, gridArray[3][3].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][3].x, gridArray[3][3].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][3].x, gridArray[3][3].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][3].x, gridArray[3][3].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][3].x;
-                        selectedTower[0].y = gridArray[3][3].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][3].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -763,27 +935,35 @@
             });
 
             gridArray[3][4].on("click", function (event: createjs.MouseEvent) {
-                if (gridArray[2][4].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                if (gridArray[3][4].name == "empty") {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][4].x, gridArray[3][4].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][4].x, gridArray[3][4].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][4].x, gridArray[3][0].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][4].x, gridArray[3][4].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][4].x, gridArray[3][4].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][4].x;
-                        selectedTower[0].y = gridArray[3][4].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][4].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -796,26 +976,34 @@
 
             gridArray[3][5].on("click", function (event: createjs.MouseEvent) {
                 if (gridArray[3][5].name == "empty") {
-                    if (selectedTower[0] != "empty") {
-                        switch (selectedTower[0]) {
+                    if (selectedTower != "empty") {
+                        switch (selectedTower) {
                             case "rocktower":
-                                selectedTower[0] = new objects.Rocktower(selectedTower[0], gridArray[3][5].x, gridArray[3][5].y)
+                                tower = new objects.Rocktower(selectedTower, gridArray[3][5].x, gridArray[3][5].y);
+                                rockTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                             case "firetower":
-                                selectedTower[0] = new objects.Firetower(selectedTower[0])
+                                tower = new objects.Firetower(selectedTower, gridArray[3][5].x, gridArray[3][5].y)
+                                fireTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 150;
                                 break;
                             case "icetower":
-                                selectedTower[0] = new objects.Icetower(selectedTower[0])
+                                tower = new objects.Icetower(selectedTower, gridArray[3][5].x, gridArray[3][5].y)
+                                iceTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 100;
+                                break;
+                            case "goldtower":
+                                tower = new objects.Goldtower(selectedTower, gridArray[3][5].x, gridArray[3][5].y);
+                                goldTowerArray.push(tower)
+                                game.addChild(tower);
+                                scoreBoard.startMoney -= 50;
                                 break;
                         }
-                        selectedTower[0].x = gridArray[3][5].x;
-                        selectedTower[0].y = gridArray[3][5].y;
-                        var money = scoreBoard.startMoney;
-                        scoreBoard.startMoney = money - selectedTower[0].cost;
-                        game.addChild(selectedTower[0]);
-                        placedTower.push(selectedTower[0]);  
-                        gridArray[3][5].name = selectedTower[0].name;
-                        selectedTower[0] = "empty";
+                        selectedTower = "empty";
                     }
                     else {
                         console.log("Please select your tower");
@@ -824,8 +1012,10 @@
                 else {
                     console.log("CANNOT BUILD");
                 }
-            });
+            });       
             
-        }
+                
+        }            
     }
+            
 }

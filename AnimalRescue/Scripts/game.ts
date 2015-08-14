@@ -27,7 +27,7 @@
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
 
-/// <reference path="objects/rock.ts" />
+/// <reference path="objects/missle.ts" />
 
 
 
@@ -69,8 +69,7 @@ var goldTower: objects.Goldtower;
 var rockTower: objects.Rocktower;
 var iceTower: objects.Icetower;
 
-
-var rock: objects.Rock;
+var missle: objects.Missle;
 
 // Game Variables
 var scoreBoard: objects.ScoreBoard;
@@ -78,9 +77,19 @@ var towerName;
 var cell: objects.Tower;
 var grid: logic.Grid;
 var gridArray = [];
-var selectedTower = [];
-var placedTower = [];
+var selectedTower: string = "empty";
+var towerBuilt: number = 0;
 var goldTowerBuilt: number = 0;
+var bowhunter: objects.Bowhunter[] = [];
+var gameOver: boolean = false;
+
+var goldTowerArray: objects.Goldtower[] = [];
+var rockTowerArray: objects.Rocktower[] = [];
+var fireTowerArray: objects.Firetower[] = [];
+var iceTowerArray: objects.Icetower[] = [];
+var missleArray: objects.Missle[] = [];
+
+
 
 // Preloader Function
 function preload() {

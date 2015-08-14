@@ -21,7 +21,7 @@
 /// <reference path="objects/rocktower.ts" />
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
-/// <reference path="objects/rock.ts" />
+/// <reference path="objects/missle.ts" />
 /// <reference path="objects/bowhunter.ts" />
 /// <reference path="objects/knifehunter.ts" />
 /// <reference path="objects/riflehunter.ts" />
@@ -46,16 +46,23 @@ var fireTower;
 var goldTower;
 var rockTower;
 var iceTower;
-var rock;
+var missle;
 // Game Variables
 var scoreBoard;
 var towerName;
 var cell;
 var grid;
 var gridArray = [];
-var selectedTower = [];
-var placedTower = [];
+var selectedTower = "empty";
+var towerBuilt = 0;
 var goldTowerBuilt = 0;
+var bowhunter = [];
+var gameOver = false;
+var goldTowerArray = [];
+var rockTowerArray = [];
+var fireTowerArray = [];
+var iceTowerArray = [];
+var missleArray = [];
 // Preloader Function
 function preload() {
     assets = new managers.Assets();

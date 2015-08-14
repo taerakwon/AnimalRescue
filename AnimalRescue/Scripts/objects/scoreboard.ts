@@ -1,4 +1,4 @@
-﻿module objects {
+﻿module objects {    
     export class ScoreBoard {
         // PUBLIC PROPERTIES
         public score: number = 0;

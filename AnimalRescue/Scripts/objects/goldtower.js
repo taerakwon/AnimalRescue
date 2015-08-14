@@ -9,7 +9,7 @@ var objects;
     // Firetower class
     var Goldtower = (function (_super) {
         __extends(Goldtower, _super);
-        function Goldtower(towerName) {
+        function Goldtower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "goldtower";
             this.sound = "goldtower";
@@ -18,6 +18,9 @@ var objects;
             this.health = 150;
             this.damage = 0;
             this.isAvailable = true;
+            this.x = x;
+            this.y = y;
+            goldTowerBuilt += 1;
         }
         Goldtower.prototype.update = function () {
             console.log("goldtower");

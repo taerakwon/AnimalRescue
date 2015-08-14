@@ -2,7 +2,7 @@
     // Firetower class
     export class Goldtower extends Tower {
 
-        constructor(towerName: string) {
+        constructor(towerName: string, x: number, y: number) {
             super(towerName);
             this.name = "goldtower";
             this.sound = "goldtower";
@@ -11,6 +11,9 @@
             this.health = 150;
             this.damage = 0;
             this.isAvailable = true;
+            this.x = x;
+            this.y = y;
+            goldTowerBuilt += 1;
         }
 
         update() {          

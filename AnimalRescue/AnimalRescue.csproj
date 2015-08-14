@@ -64,6 +64,7 @@
     <Content Include="assets\images\empty.png" />
     <Content Include="assets\images\emptyDark.png" />
     <Content Include="assets\images\fire.png" />
+    <Content Include="assets\images\gameover.png" />
     <Content Include="assets\images\gold.png" />
     <Content Include="assets\images\gradient.png" />
     <Content Include="assets\images\ice.png" />
@@ -120,7 +121,7 @@
     <TypeScriptCompile Include="Scripts\objects\knifehunter.ts" />
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
     <TypeScriptCompile Include="Scripts\objects\riflehunter.ts" />
-    <TypeScriptCompile Include="Scripts\objects\rock.ts" />
+    <TypeScriptCompile Include="Scripts\objects\missle.ts" />
     <TypeScriptCompile Include="Scripts\objects\rocktower.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\towers.ts" />

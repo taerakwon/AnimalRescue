@@ -1,9 +1,7 @@
 ﻿module objects {
-    // Firetower class    
-    var x;
-    var y;
+    // Rocktower class    
     export class Rocktower extends Tower {
-        constructor(towerName: string, x: number, y: number) {
+        constructor(towerName: string, x: number, y: number) {            
             super(towerName);
             this.name = "rocktower";
             this.sound = "rocktower";
@@ -11,14 +9,13 @@
             this.health = 100;
             this.damage = 75;
             this.attackSpeed = 8;
-            this.isAvailable = true;    
-            
-            rock = new objects.Rock;
+            this.isAvailable = true;
             this.x = x;
             this.y = y;
-            rock.x = this.x+40;
-            rock.y = this.y+20;
-            rock.dx = this.attackSpeed;
+            towerBuilt += 1;
+            var rock;
+            rock = new Missle("rock", this.x+40, this.y+40, this.attackSpeed);
+            missleArray.push(rock);
         }
 
         destroy() {
@@ -26,16 +23,6 @@
         }
 
         update() {
-            rock.update();
-            if (rock.x > 500) {
-                this.reset();                
-            }
         }
-
-        reset() {
-            rock.x = this.x+20;
-            rock.y = this.y+40;
-        }
-
     }
 }  

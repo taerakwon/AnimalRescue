@@ -22,7 +22,10 @@
             { id: "fire", src: "assets/images/fire.png" },
             { id: "ice", src: "assets/images/ice.png" },
             { id: "rock", src: "assets/images/rock.png" },
-            { id: "gold", src: "assets/images/gold.png" }
+            { id: "gold", src: "assets/images/gold.png" },
+            { id: "gameOver", src: "assets/images/gameover.png" }
+            //sounds
+
         ];
 
         private buttonManifest = {
