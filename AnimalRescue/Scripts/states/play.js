@@ -11,7 +11,7 @@ var state;
         Play.prototype.update = function () {
             scoreBoard.update();
             for (var hunter = 0; hunter < 10; hunter++) {
-                bowhunter[hunter].update();
+                bowhunters[hunter].update();
             }
             for (var tower = 0; tower < goldTowerArray.length; tower++) {
                 goldTowerArray[tower].update();
@@ -26,8 +26,6 @@ var state;
         // Main method
         Play.prototype._Main = function () {
             this._destroy();
-            // Create game container
-            game = new createjs.Container;
             // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
             game.addChild(this.level1Background);
@@ -59,11 +57,11 @@ var state;
             scoreBoard = new objects.ScoreBoard();
             // Add Bowhunter
             for (var i = 0; i < 10; i++) {
-                bowhunter[i] = new objects.Bowhunter("hunter");
-                bowhunter[i].x = 800 + (200 * i);
-                bowhunter[i].dx = -5;
-                bowhunter[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
-                game.addChild(bowhunter[i]);
+                bowhunters[i] = new objects.Bowhunter("hunter");
+                bowhunters[i].x = 800 + (200 * i);
+                bowhunters[i].dx = -5;
+                bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
+                game.addChild(bowhunters[i]);
             }
             // Add Grass
             this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level1Grass"));

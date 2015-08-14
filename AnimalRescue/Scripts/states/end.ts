@@ -13,9 +13,7 @@
 
         // Private methods
         private _main() {
-            game = new createjs.Container();
-
-
+            game.removeAllChildren();
             // Add introduction 
             this.end = new createjs.Bitmap(assets.loader.getResult("gameOver"));
             game.addChild(this.end);
@@ -26,9 +24,6 @@
             this.startArrow.y = 330;
             game.addChild(this.startArrow);
             this.startArrow.on("click", this._startArrowClick, this);
-
-            // Add game container to stage
-            stage.addChild(game);
         }
 
         // Destroy Method

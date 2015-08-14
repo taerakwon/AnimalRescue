@@ -10,8 +10,7 @@ var state;
         };
         // Main method
         Start.prototype._main = function () {
-            // Instantiate new game container
-            //game = new createjs.Container();
+            this._destroy;
             // Add gradient
             gradient = new objects.Gradient(assets.loader.getResult("gradient"));
             game.addChild(gradient);
@@ -19,7 +18,7 @@ var state;
             startScreen = new createjs.Bitmap(assets.loader.getResult("startScreen"));
             game.addChild(startScreen);
             // Play BGM
-            this.bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+            bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
             // Add buttons to stage
             this.startButton = new objects.Button("startorange", "startred");
             this.startButton.x = 370;
@@ -32,7 +31,7 @@ var state;
             game.addChild(this.instructionButton);
             this.instructionButton.on("click", this._instructionClick, this);
             // Add game container to stage
-            stage.addChild(game);
+            //stage.addChild(game);
         };
         // Destroy Method
         Start.prototype._destroy = function () {
@@ -41,6 +40,7 @@ var state;
         // Instruction Method
         Start.prototype._instructionClick = function (event) {
             this._destroy();
+            bgm.destroy();
             currentState = config.INSTRUCTION_STATE;
             changeState();
             this.instructionButton.off("click", this._instructionClick);
@@ -48,7 +48,7 @@ var state;
         // Play Method
         Start.prototype._playClick = function (event) {
             this._destroy();
-            this.bgm.destroy();
+            bgm.destroy();
             currentState = config.PLAY_STATE;
             changeState();
             this.startButton.off("click", this._playClick);

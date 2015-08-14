@@ -13,11 +13,14 @@ var objects;
             _super.call(this, assets.bowhunterAtlas, imageString);
             this.damage = 25;
             this.health = 300;
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
         }
         Bowhunter.prototype.update = function () {
             this.x += this.dx;
             if (this.x == 50) {
                 this.destroy();
+                missleArray = [];
                 currentState = config.END_STATE;
                 changeState();
             }

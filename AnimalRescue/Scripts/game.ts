@@ -7,6 +7,8 @@
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
 /// <reference path="config/config.ts" />
+
+/// <reference path="utility/utility.ts" />
 /// <reference path="managers/asset.ts" />
 
 /// <reference path="objects/label.ts" />
@@ -65,6 +67,7 @@ var end: state.End;
 // Background Variables
 var gradient: objects.Gradient;
 var startScreen: createjs.Bitmap;
+var bgm: createjs.AbstractSoundInstance;
 
 
 // Game Towers
@@ -84,13 +87,15 @@ var gridArray = [];
 var selectedTower: string = "empty";
 var towerBuilt: number = 0;
 var goldTowerBuilt: number = 0;
-var bowhunter: objects.Bowhunter[] = [];
+var bowhunter: objects.Bowhunter;
+var bowhunters: objects.Bowhunter[] = [];
 var gameOver: boolean = false;
 
 var goldTowerArray: objects.Goldtower[] = [];
 var rockTowerArray: objects.Rocktower[] = [];
 var fireTowerArray: objects.Firetower[] = [];
 var iceTowerArray: objects.Icetower[] = [];
+var missle: objects.Missle;
 var missleArray: objects.Missle[] = [];
 
 
@@ -98,6 +103,7 @@ var missleArray: objects.Missle[] = [];
 // Preloader Function
 function preload() {
     assets = new managers.Assets();
+    
     //Setup statistics object
     setupStats();
 }
@@ -149,7 +155,8 @@ function changeState(){
 
     // State Machine
     switch (currentState) {
-        case config.START_STATE:
+        case config.START_STATE:            
+            game.removeAllChildren();
             // Instantiate start state       
             start = new state.Start();
             currentStateFunction = start;
@@ -160,6 +167,7 @@ function changeState(){
             currentStateFunction = instruction;
             break;
         case config.PLAY_STATE:
+            game.removeAllChildren();
             // Instantiate play state
             play = new state.Play();
             currentStateFunction = play;

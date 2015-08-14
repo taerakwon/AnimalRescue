@@ -13,9 +13,7 @@
 
         // Private methods
         private _main() {
-            game = new createjs.Container();
-
-
+            this._destroy();
             // Add introduction 
             this.introduction = new createjs.Bitmap(assets.loader.getResult("introduction"));
             game.addChild(this.introduction);
@@ -28,7 +26,7 @@
             this.startArrow.on("click", this._startArrowClick, this);
 
             // Add game container to stage
-            stage.addChild(game);            
+            //stage.addChild(game);            
         }
 
         // Destroy Method
@@ -37,8 +35,7 @@
         }
 
         // Instruction Method
-        private _startArrowClick(event: createjs.MouseEvent) {
-            this._destroy();
+        private _startArrowClick(event: createjs.MouseEvent) {         
             currentState = config.START_STATE;
             changeState();
             this.startArrow.off("click", this._startArrowClick);

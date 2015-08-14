@@ -1,7 +1,7 @@
 ﻿module state {    
     // Start state class
     export class Start {        
-        bgm: createjs.AbstractSoundInstance;
+        
         private startButton: objects.Button;
         private instructionButton: objects.Button;
         
@@ -15,11 +15,9 @@
         }
 
         // Main method
-        private _main() {            
-            
-            // Instantiate new game container
-            //game = new createjs.Container();
-
+        private _main() { 
+            this._destroy;
+                  
             // Add gradient
             gradient = new objects.Gradient(assets.loader.getResult("gradient"))
             game.addChild(gradient);
@@ -29,7 +27,7 @@
             game.addChild(startScreen);
 
             // Play BGM
-            this.bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0); 
+            bgm = createjs.Sound.play("bgm", createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0); 
 
             // Add buttons to stage
             this.startButton = new objects.Button("startorange", "startred");
@@ -46,7 +44,7 @@
                         
 
             // Add game container to stage
-            stage.addChild(game);
+            //stage.addChild(game);
         }
 
         // Destroy Method
@@ -57,6 +55,7 @@
         // Instruction Method
         private _instructionClick(event: createjs.MouseEvent) {
             this._destroy();
+            bgm.destroy();
             currentState = config.INSTRUCTION_STATE;
             changeState();            
             this.instructionButton.off("click", this._instructionClick);
@@ -65,7 +64,7 @@
         // Play Method
         private _playClick(event: createjs.MouseEvent) {
             this._destroy();
-            this.bgm.destroy();
+            bgm.destroy();
             currentState = config.PLAY_STATE;
             changeState();
             this.startButton.off("click", this._playClick);

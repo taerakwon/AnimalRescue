@@ -6,6 +6,7 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 /// <reference path="config/config.ts" />
+/// <reference path="utility/utility.ts" />
 /// <reference path="managers/asset.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/gameobjects.ts" />
@@ -43,6 +44,7 @@ var end;
 // Background Variables
 var gradient;
 var startScreen;
+var bgm;
 // Game Towers
 var fireTower;
 var goldTower;
@@ -58,12 +60,14 @@ var gridArray = [];
 var selectedTower = "empty";
 var towerBuilt = 0;
 var goldTowerBuilt = 0;
-var bowhunter = [];
+var bowhunter;
+var bowhunters = [];
 var gameOver = false;
 var goldTowerArray = [];
 var rockTowerArray = [];
 var fireTowerArray = [];
 var iceTowerArray = [];
+var missle;
 var missleArray = [];
 // Preloader Function
 function preload() {
@@ -108,6 +112,7 @@ function changeState() {
     // State Machine
     switch (currentState) {
         case config.START_STATE:
+            game.removeAllChildren();
             // Instantiate start state       
             start = new state.Start();
             currentStateFunction = start;
@@ -118,6 +123,7 @@ function changeState() {
             currentStateFunction = instruction;
             break;
         case config.PLAY_STATE:
+            game.removeAllChildren();
             // Instantiate play state
             play = new state.Play();
             currentStateFunction = play;

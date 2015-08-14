@@ -9,7 +9,7 @@ var state;
         };
         // Private methods
         Instruction.prototype._main = function () {
-            game = new createjs.Container();
+            this._destroy();
             // Add introduction 
             this.introduction = new createjs.Bitmap(assets.loader.getResult("introduction"));
             game.addChild(this.introduction);
@@ -20,7 +20,7 @@ var state;
             game.addChild(this.startArrow);
             this.startArrow.on("click", this._startArrowClick, this);
             // Add game container to stage
-            stage.addChild(game);
+            //stage.addChild(game);            
         };
         // Destroy Method
         Instruction.prototype._destroy = function () {
@@ -28,7 +28,6 @@ var state;
         };
         // Instruction Method
         Instruction.prototype._startArrowClick = function (event) {
-            this._destroy();
             currentState = config.START_STATE;
             changeState();
             this.startArrow.off("click", this._startArrowClick);
