@@ -31,6 +31,12 @@ var objects;
                     setTimeout(function () { return changeState(); }, 500);
                 }
             }
+            else if (currentState == config.LEVEL3_STATE) {
+                if (score == 45) {
+                    currentState = config.WIN_STATE;
+                    setTimeout(function () { return changeState(); }, 500);
+                }
+            }
         };
         return ScoreBoard;
     })();

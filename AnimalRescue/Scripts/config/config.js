@@ -15,5 +15,6 @@ var config;
     config.LEVEL2_STATE = 3;
     config.LEVEL3_STATE = 4;
     config.END_STATE = 5;
+    config.WIN_STATE = 6;
 })(config || (config = {}));
 //# sourceMappingURL=config.js.map

@@ -28,6 +28,8 @@
 /// <reference path="states/level2.ts" />
 /// <reference path="states/level3.ts" />
 /// <reference path="states/end.ts" />
+/// <reference path="states/win.ts" />
+
 
 
 
@@ -71,6 +73,7 @@ var play: state.Play;
 var level2: state.Level2;
 var level3: state.Level3;
 var end: state.End;
+var win: state.Winstate;
 
 // Background Variables
 var gradient: objects.Gradient;
@@ -198,7 +201,12 @@ function changeState() {
             end = new state.End();
             currentStateFunction = end;
             break;
-
+        case config.WIN_STATE:
+            game.removeAllChildren();
+            // Instantiate win state
+            win = new state.Winstate();
+            currentStateFunction = win;
+            break;
     }    
 
     // Add game container to stage

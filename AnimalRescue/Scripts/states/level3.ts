@@ -16,7 +16,7 @@
         constructor() {         
             this._Main();
             // Give more money in level 3
-            scoreBoard.startMoney += 100;  
+            scoreBoard.startMoney += 150;  
         }
 
         // Update Method
@@ -90,7 +90,7 @@
             for (var i = 0; i < 20; i++) {
                 riflehunters[i] = new objects.Riflehunter("rhunter");
                 riflehunters[i].x = 800 + (200 * i);
-                riflehunters[i].dx = -0.5; // Speed of Rifle hunter
+                riflehunters[i].dx = -0.7; // Speed of Rifle hunter
                 riflehunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(riflehunters[i]);
             }

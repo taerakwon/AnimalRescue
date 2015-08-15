@@ -90,7 +90,7 @@
             for (var i = 0; i < 15; i++) {
                 knifehunters[i] = new objects.Knifehunter("ahunter");;
                 knifehunters[i].x = 800 + (200 * i);
-                knifehunters[i].dx = -0.4 // Speed of Knife hunter
+                knifehunters[i].dx = -0.5; // Speed of Knife hunter
                 knifehunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(knifehunters[i]);
             }

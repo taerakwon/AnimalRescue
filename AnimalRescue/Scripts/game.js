@@ -22,6 +22,7 @@
 /// <reference path="states/level2.ts" />
 /// <reference path="states/level3.ts" />
 /// <reference path="states/end.ts" />
+/// <reference path="states/win.ts" />
 /// <reference path="objects/towers.ts" />
 /// <reference path="objects/goldtower.ts" />
 /// <reference path="objects/rocktower.ts" />
@@ -48,6 +49,7 @@ var play;
 var level2;
 var level3;
 var end;
+var win;
 // Background Variables
 var gradient;
 var startScreen;
@@ -154,6 +156,12 @@ function changeState() {
             // Instantiate end state
             end = new state.End();
             currentStateFunction = end;
+            break;
+        case config.WIN_STATE:
+            game.removeAllChildren();
+            // Instantiate win state
+            win = new state.Winstate();
+            currentStateFunction = win;
             break;
     }
     // Add game container to stage

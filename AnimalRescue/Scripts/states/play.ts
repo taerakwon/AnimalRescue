@@ -89,7 +89,7 @@ module state {
             for (var i = 0; i < 10; i++) {
                 bowhunters[i] = new objects.Bowhunter("hunter");
                 bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -0.3 // Speed of hunter
+                bowhunters[i].dx = -0.3; // Speed of hunter
                 bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunters[i]);
             }

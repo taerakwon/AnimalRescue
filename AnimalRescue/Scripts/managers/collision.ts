@@ -4,6 +4,7 @@
         // Private variables
         private _enemies = [];
         private _missles = [];
+        private beBack = createjs.Sound;
 
         constructor(enemies?, missles?) {
             this._enemies = enemies;
@@ -49,8 +50,9 @@
                     for (var count = 0; count < this._missles.length; count++) {                        
                         this._bulletAndEnemy(this._missles[count], this._enemies[counter]);                        
                         if (this._enemies[counter].health <= 0) {
+                            this.beBack.play("beback"); // Play I'll be back
                             this._enemies[counter].dead = true;
-                            if (this._enemies[counter].dead == true) {
+                            if (this._enemies[counter].dead == true) {                                
                                 this._enemies[counter].health = 300; // Resets health so that above if statement does not execute
                                 scoreBoard.score += 1; // Adds one score when enemy is dead
                                 this._enemies[counter].x = 10000; // Push hunter off the map so user cannot see

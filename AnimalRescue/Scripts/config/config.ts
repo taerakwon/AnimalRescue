@@ -18,4 +18,5 @@
     export const LEVEL2_STATE: number = 3;
     export const LEVEL3_STATE: number = 4;
     export const END_STATE: number = 5;
+    export const WIN_STATE: number = 6;
 } 

@@ -1,8 +1,8 @@
 ﻿module state {
-    // End state class
-    export class End {
-        private laugh = createjs.Sound.play("laugh");
-        private end: createjs.Bitmap;
+    // Winstate class
+    export class Winstate {
+        private victoryMusic = createjs.Sound.play("victory");
+        private congrats: createjs.Bitmap;
         private startArrow: objects.Button;
         private replayButton: objects.Button;
 
@@ -14,28 +14,28 @@
         public update() {
         }
 
-        // Private methods
+        // Main methods
         private _main() {
-        
             game.removeAllChildren();
-            // Add Laugh Sound
-            this.laugh.play();
+            
+            // Add Victory sound clip
+            this.victoryMusic.play();
 
-            // Add introduction 
-            this.end = new createjs.Bitmap(assets.loader.getResult("gameOver"));
-            game.addChild(this.end);
+            // Add Congratulation image
+            this.congrats = new createjs.Bitmap(assets.loader.getResult("win"));
+            game.addChild(this.congrats);
 
-            // Add back button
+            // Add return to start button
             this.startArrow = new objects.Button("arrowred", "arroworange");
-            this.startArrow.x = 330;
-            this.startArrow.y = 430;
+            this.startArrow.x = 570;
+            this.startArrow.y = 400;
             game.addChild(this.startArrow);
             this.startArrow.on("click", this._startArrowClick, this);
 
-            // Add main menu button
+            // Add replay button
             this.replayButton = new objects.Button("replayred", "replayorange");
-            this.replayButton.x = 300;
-            this.replayButton.y = 350;
+            this.replayButton.x = 550;
+            this.replayButton.y = 510;
             game.addChild(this.replayButton);
             this.replayButton.on("click", this._replayButtonClick, this);
 
@@ -43,9 +43,10 @@
 
         // Destroy Method
         private _destroy() {
-            this.laugh.stop();
+            this.victoryMusic.stop();
             game.removeAllChildren();
             stage.removeAllChildren();
+
             // To reset tower arrays
             goldTowerArray = [];
             rockTowerArray = [];
@@ -53,7 +54,7 @@
             fireTowerArray = [];
         }
 
-        // Instruction Method
+        // Return to start method
         private _startArrowClick(event: createjs.MouseEvent) {
             this._destroy();
             currentState = config.START_STATE;
@@ -63,7 +64,7 @@
 
         // Replay Method
         private _replayButtonClick(event: createjs.MouseEvent) {
-            this._destroy();            
+            this._destroy();
             currentState = config.PLAY_STATE;
             changeState();
             this.startArrow.off("click", this._replayButtonClick);

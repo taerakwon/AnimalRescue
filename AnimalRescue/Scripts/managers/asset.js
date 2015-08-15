@@ -20,11 +20,14 @@ var managers;
                 { id: "rock", src: "assets/images/rock.png" },
                 { id: "gold", src: "assets/images/gold.png" },
                 { id: "gameOver", src: "assets/images/gameover.png" },
+                { id: "win", src: "assets/images/win.png" },
                 //sounds
                 { id: "bgm", src: "assets/audio/bgm.mp3" },
                 { id: "click", src: "assets/audio/click.mp3" },
                 { id: "needMoney", src: "assets/audio/needMoney.mp3" },
-                { id: "laugh", src: "assets/audio/laugh.mp3" }
+                { id: "beback", src: "assets/audio/beback.mp3" },
+                { id: "laugh", src: "assets/audio/laugh.mp3" },
+                { id: "victory", src: "assets/audio/victory.mp3" }
             ];
             // Assets for buttons
             this.buttonManifest = {

@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\beback.mp3" />
     <Content Include="assets\audio\bgm.mp3" />
     <Content Include="assets\audio\click.mp3" />
     <Content Include="assets\audio\laugh.mp3" />
@@ -85,6 +86,8 @@
     <Content Include="assets\images\rock.png" />
     <Content Include="assets\images\startScreen.png" />
     <Content Include="assets\images\towerAtlas.png" />
+    <Content Include="assets\audio\victory.mp3" />
+    <Content Include="assets\images\win.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -135,6 +138,7 @@
     <TypeScriptCompile Include="Scripts\states\level3.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\states\start.ts" />
+    <TypeScriptCompile Include="Scripts\states\win.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
