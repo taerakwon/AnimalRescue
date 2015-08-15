@@ -1,4 +1,5 @@
 ﻿module state {
+    // End state class
     export class End {
         private laugh = createjs.Sound.play("laugh");
         private end: createjs.Bitmap;

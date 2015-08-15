@@ -1,4 +1,6 @@
 ﻿module state {
+
+    // Instruction class
     export class Instruction {
         private introduction: createjs.Bitmap;
         private startArrow: objects.Button;

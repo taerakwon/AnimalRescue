@@ -15,7 +15,7 @@ var objects;
             this.sound = "rocktower";
             this.cost = 50;
             this.health = 100;
-            this.damage = 75;
+            this.damage = 25;
             this.attackSpeed = 5;
             this.isAvailable = true;
             this.x = x;

@@ -20,7 +20,6 @@ var objects;
             this.x = x;
             this.y = y;
             this.isAvailable = true;
-            var burnDamage = 25;
             var fire;
             fire = new objects.Missle("fire", this.x + 40, this.y + 40, this.attackSpeed);
             missleArray.push(fire);

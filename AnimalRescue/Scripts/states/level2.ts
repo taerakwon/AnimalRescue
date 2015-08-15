@@ -1,8 +1,7 @@
-﻿// Play state
-module state {
+﻿module state {
     var money: number;
     var timer: number;
-
+    // Level2 state class
     export class Level2 {
         // Private variables
         private level1Background: createjs.Bitmap;

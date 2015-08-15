@@ -29,7 +29,7 @@
             //    this.reset();
             //}
         }
-
+        // resets missle back to original position where tower was built
         public reset(): void {
             this.x = this.horizontal;
             this.y = this.vertical;

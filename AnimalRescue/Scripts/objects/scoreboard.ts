@@ -1,4 +1,6 @@
 ﻿module objects {   
+
+    // Scoreboard class
     export class ScoreBoard {
         // PUBLIC PROPERTIES        
         public startMoney: number = 300;

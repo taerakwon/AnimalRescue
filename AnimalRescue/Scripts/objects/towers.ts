@@ -1,4 +1,6 @@
 ﻿module objects {
+
+    // Tower class
     export class Tower extends createjs.Sprite {
 
         // Public properties
