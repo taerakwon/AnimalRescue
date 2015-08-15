@@ -21,7 +21,7 @@ module state {
         // Update Method
         public update() {
             scoreBoard.update();
-
+            collision.update();
             for (var hunter = 0; hunter < 10; hunter++) {
                 bowhunters[hunter].update();
             }
@@ -56,10 +56,10 @@ module state {
 
             this.goldtowerBtn = new objects.Button("goldtower", "goldtowerDark");
             this.goldtowerBtn.x = 60;
-            this.goldtowerBtn.y = 510;            
-            game.addChild(this.goldtowerBtn);      
-            this.goldtowerBtn.addEventListener("click", this._goldtowerBtn_Click);      
-                        
+            this.goldtowerBtn.y = 510;
+            game.addChild(this.goldtowerBtn);
+            this.goldtowerBtn.addEventListener("click", this._goldtowerBtn_Click);
+
             this.rocktowerBtn = new objects.Button("rocktower", "rocktowerDark");
             this.rocktowerBtn.x = 160;
             this.rocktowerBtn.y = 510;
@@ -75,7 +75,7 @@ module state {
             this.firetowerBtn = new objects.Button("firetower", "firetowerDark");
             this.firetowerBtn.x = 360;
             this.firetowerBtn.y = 510;
-            game.addChild(this.firetowerBtn);     
+            game.addChild(this.firetowerBtn);
             this.firetowerBtn.addEventListener("click", this._firetowerBtn_Click);
 
             stage.on("click", grid.onClickEvent);                  
@@ -86,9 +86,9 @@ module state {
             // Add Bowhunter
             for (var i = 0; i < 10; i++) {
                 bowhunters[i] = new objects.Bowhunter("hunter");
-                bowhunters[i].x = 800+(200*i);
-                bowhunters[i].dx = -2;          
-                bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));                    
+                bowhunters[i].x = 800 + (200 * i);
+                bowhunters[i].dx = -2;
+                bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunters[i]);
             }
 
@@ -97,9 +97,12 @@ module state {
             this.level1Grass.x = 700;
             this.level1Grass.y = 100;
             game.addChild(this.level1Grass);   
+
+            // Instantiate Collision
+            collision = new managers.Collision(bowhunters, missleArray);
                         
             // Add game container to stage
-            stage.addChild(game);       
+            stage.addChild(game);
         }
 
         // Method when gold tower button has been clicked
@@ -121,7 +124,7 @@ module state {
             else if (scoreBoard.startMoney < 50) {
                 // Play Need Money Sound
                 createjs.Sound.play("needMoney");
-            }            
+            }
         }
 
         // Method when ice tower button has been clicked
@@ -132,18 +135,18 @@ module state {
             else if (scoreBoard.startMoney < 100) {
                 // Play Need Money Sound
                 createjs.Sound.play("needMoney");
-            }                        
+            }
         }
 
         // Method when fire tower button has been clicked
         private _firetowerBtn_Click(event: createjs.MouseEvent) {
             if (scoreBoard.startMoney >= 150) {
-                selectedTower = "firetower"; 
+                selectedTower = "firetower";
             }
             else if (scoreBoard.startMoney < 150) {
                 // Play Need Money Sound
                 createjs.Sound.play("needMoney");
-            }                                           
+            }
         }
 
         // Method to update each towers in placedTower array
@@ -161,6 +164,6 @@ module state {
         private _destroy() {
             game.removeAllChildren();
         }
-        
+
     }
 }

@@ -8,6 +8,7 @@
 /// <reference path="config/config.ts" />
 /// <reference path="utility/utility.ts" />
 /// <reference path="managers/asset.ts" />
+/// <reference path="managers/collision.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/gameobjects.ts" />
 /// <reference path="objects/gradient.ts" />
@@ -34,6 +35,7 @@ var game;
 var stats;
 // Game Managers
 var assets;
+var collision;
 // Game States
 var currentStateFunction; // State Alias
 var currentState;

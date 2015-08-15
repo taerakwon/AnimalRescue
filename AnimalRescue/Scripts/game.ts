@@ -10,6 +10,8 @@
 
 /// <reference path="utility/utility.ts" />
 /// <reference path="managers/asset.ts" />
+/// <reference path="managers/collision.ts" />
+
 
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/gameobjects.ts" />
@@ -55,6 +57,7 @@ var stats: Stats;
 
 // Game Managers
 var assets: managers.Assets;
+var collision: managers.Collision;
 
 // Game States
 var currentStateFunction; // State Alias
@@ -80,7 +83,7 @@ var missle: objects.Missle;
 
 // Game Variables
 var scoreBoard: objects.ScoreBoard;
-var towerName; 
+var towerName;
 var cell: objects.Tower;
 var grid: logic.Grid;
 var gridArray = [];
@@ -109,8 +112,7 @@ function preload() {
 }
 
 // Callback function that initializes game objects
-function init()
-{
+function init() {
     stage = new createjs.Stage(canvas); // reference to the stage
     stage.enableMouseOver(20);
     createjs.Ticker.setFPS(60); // framerate 60 fps for the game
@@ -125,8 +127,7 @@ function init()
 }
 
 // Function to setup stat counting
-function setupStats()
-{
+function setupStats() {
     stats = new Stats();
     stats.setMode(0); // set to fps
 
@@ -139,8 +140,7 @@ function setupStats()
 
 
 // Callback function that creates our Main Game Loop - refreshed 60 fps
-function gameLoop()
-{
+function gameLoop() {
     stats.begin(); // Begin measuring
     //currentStateFunction.update();
     currentStateFunction.update();
@@ -149,13 +149,13 @@ function gameLoop()
 }
 
 // Main Game Function
-function changeState(){
+function changeState() {
     // Instantiate new game container    
     game = new createjs.Container();
 
     // State Machine
     switch (currentState) {
-        case config.START_STATE:            
+        case config.START_STATE:
             game.removeAllChildren();
             // Instantiate start state       
             start = new state.Start();

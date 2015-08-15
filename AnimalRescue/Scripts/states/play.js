@@ -10,6 +10,7 @@ var state;
         // Update Method
         Play.prototype.update = function () {
             scoreBoard.update();
+            collision.update();
             for (var hunter = 0; hunter < 10; hunter++) {
                 bowhunters[hunter].update();
             }
@@ -68,6 +69,8 @@ var state;
             this.level1Grass.x = 700;
             this.level1Grass.y = 100;
             game.addChild(this.level1Grass);
+            // Instantiate Collision
+            collision = new managers.Collision(bowhunters, missleArray);
             // Add game container to stage
             stage.addChild(game);
         };

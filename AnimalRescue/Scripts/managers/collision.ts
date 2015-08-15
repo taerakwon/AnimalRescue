@@ -1,35 +1,54 @@
 ﻿module managers {
+    // Collision Manager Class
     export class Collision {
-        //CONSTRUCTOR +++++++++++++++++++++++++++
-        constructor() {
+        // Private variables
+        private enemies = [];
+        private missles = [];
+
+        constructor(enemies?, missles?) {
+            this.enemies = enemies;
+            this.missles = missles;
         }
 
-        //PUBLIC METHODS ++++++++++++++++++++++++
-        // CHECKS THE DISTANCE BETWEEN JETPLANE AND OTHER OBJECTS
-        public check(gameObject: objects.GameObject) {
+        // Utility method - Distance calculation between two points
+        private distance(p1: createjs.Point, p2: createjs.Point): number {
+            var result: number = 0;
+            var xPoints: number = 0;
+            var yPoints: number = 0;
+
+            xPoints = p2.x - p1.x;
+            xPoints = xPoints * xPoints;
+
+            yPoints = p2.y - p1.y;
+            yPoints = yPoints * yPoints;
+
+            result = Math.sqrt(xPoints + yPoints);
+
+            return result;
+        }
+
+        // check collision between bullet and any enemy object
+        private bulletAndEnemy(missle: objects.Missle, enemy: objects.Bowhunter) {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
-
-            p1.x = bowhunter.x;
-            p1.y = bowhunter.y;
-
-            p2.x = missle.x;
-            p2.y = missle.y;
-
-            if (utility.distance(p1, p2) < ((bowhunter.height * 0.5) + (gameObject.height * 0.5))) {
-                if (gameObject.isColliding == false) {
-                    createjs.Sound.play(gameObject.sound);
-                    if (gameObject.name == "missle") {
-                        scoreBoard.score += 100;
-                    }
-                }
-                gameObject.isColliding = true;
-            }
-            else {
-                gameObject.isColliding = false;
+            p1.x = missle.x;
+            p1.y = missle.y;
+            p2.x = enemy.x;
+            p2.y = enemy.y;
+            if (this.distance(p1, p2) < ((missle.height * 0.5) + (enemy.height * 0.5))) {
+                scoreBoard.score += 100;
             }
         }
 
-
+        // Utility Function to Check Collisions
+        update() {
+            if (missleArray.length > 0) {
+                if (bowhunters.length > 0) {
+                    for (var count = 0; count < bowhunters.length; count++) {
+                        this.bulletAndEnemy(this.missles[0], this.enemies[count]);
+                    }
+                }
+            }
+        }
     }
-}  
+} 

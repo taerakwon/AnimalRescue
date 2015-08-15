@@ -1,7 +1,7 @@
 ﻿module objects {
     // Rocktower class    
     export class Rocktower extends Tower {
-        constructor(towerName: string, x: number, y: number) {            
+        constructor(towerName: string, x: number, y: number) {
             super(towerName);
             this.name = "rocktower";
             this.sound = "rocktower";
@@ -14,7 +14,7 @@
             this.y = y;
             towerBuilt += 1;
             var rock;
-            rock = new Missle("rock", this.x+40, this.y+40, this.attackSpeed);
+            rock = new Missle("rock", this.x + 40, this.y + 40, this.attackSpeed);
             missleArray.push(rock);
         }
 

@@ -1,13 +1,13 @@
 ﻿module objects {    
     // Missle class
-    export class Missle extends objects.GameObject {      
+    export class Missle extends objects.GameObject {
         public height: number;
         public width: number;
         private horizontal: number;
         private vertical: number;
         private attackSpeed: number;
-        constructor(imageString: string, x: number, y: number, speed: number) {            
-            super(imageString);                                                          
+        constructor(imageString: string, x: number, y: number, speed: number) {
+            super(imageString);
             this.vertical = y;
             this.horizontal = x;
             this.attackSpeed = speed;

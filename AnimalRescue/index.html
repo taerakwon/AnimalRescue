@@ -5,8 +5,10 @@
 <!-- Last Modified By: Taera Kwon -->
 <!-- Date Last Modified: July 31, 2015 -->
 <!-- Description: Animal Rescue is a Tower Defense game where player's main goal is to build strcutures to protect animals from being hunted -->
-<!-- Revision History 
-    August 14, 2015 - Added Need Money and Laugh Sound
+<!-- Revision History
+    August 14, 2015 - Modified collision domain
+                    - Collision updated
+                    - Added Need Money and Laugh Sound
                     - Added collision, utility classes, and removed missles when game ends
                     - Updated grid array so that it disappears when game restarts
                     - Added end states, BGM, click sound
@@ -21,12 +23,11 @@
     August 2, 2015  - Added introduction state and butttons
                     - Added title gradient effect
                     - Added Start State, Start and Instruction Buttons
-                    
-    July 31, 2015   - Initial strcture of the game
-    
-    
-    -->
 
+    July 31, 2015   - Initial strcture of the game
+
+
+    -->
 
 <head>
     <meta charset="utf-8" />
@@ -38,37 +39,32 @@
 <body onload="preload();">
     <!-- Game Container -->
     <canvas id="canvas" width="800" height="600"></canvas>
-
     <!-- JavaScript Section -->
     <script src="Scripts/lib/Stats.js"></script>
     <script src="Scripts/lib/easeljs-0.8.0.min.js"></script>
     <script src="Scripts/lib/tweenjs-0.6.0.min.js"></script>
     <script src="Scripts/lib/soundjs-0.6.0.min.js"></script>
     <script src="Scripts/lib/preloadjs-0.6.0.min.js"></script>
-
     <!-- Utility -->
     <script src="Scripts/utility/utility.js"></script>
-
     <!-- Configuration -->
     <script src="Scripts/config/config.js"></script>
-
+    <script src="Scripts/managers/collision.js"></script>
 
     <!-- Assets -->
     <script src="Scripts/objects/label.js"></script>
     <script src="Scripts/objects/gameobjects.js"></script>
-    <script src="Scripts/objects/gradient.js"></script>    
+    <script src="Scripts/objects/gradient.js"></script>
     <script src="Scripts/managers/asset.js"></script>
     <script src="Scripts/objects/button.js"></script>
     <script src="Scripts/objects/scoreboard.js"></script>
     <script src="Scripts/logics/grid.js"></script>
 
-        
     <!-- Game States -->
     <script src="Scripts/states/start.js"></script>
     <script src="Scripts/states/instruction.js"></script>
     <script src="Scripts/states/play.js"></script>
     <script src="Scripts/states/end.js"></script>
-
 
     <!-- Tower -->
     <script src="Scripts/objects/towers.js"></script>
@@ -78,14 +74,10 @@
     <script src="Scripts/objects/firetower.js"></script>
     <script src="Scripts/objects/missle.js"></script>
 
-
-
     <!-- Hunters -->
     <script src="Scripts/objects/bowhunter.js"></script>
     <script src="Scripts/objects/knifehunter.js"></script>
     <script src="Scripts/objects/riflehunter.js"></script>
-
-
 
     <!-- Game Scripts -->
     <script src="Scripts/game.js"></script>
