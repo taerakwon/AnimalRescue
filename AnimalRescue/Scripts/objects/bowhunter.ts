@@ -26,7 +26,7 @@
         }
 
         destroy() {
-            game.removeAllChildren();
+            game.removeChild(this);
         }
 
     }

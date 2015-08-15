@@ -6,8 +6,9 @@
         private horizontal: number;
         private vertical: number;
         private attackSpeed: number;
-        constructor(imageString: string, x: number, y: number, speed: number) {
+        constructor(imageString: string, x: number, y: number, speed: number, damage: number) {
             super(imageString);
+            this.damage = damage;
             this.vertical = y;
             this.horizontal = x;
             this.attackSpeed = speed;
@@ -15,6 +16,7 @@
             this.height = this.getBounds().height;
             this.x = this.horizontal;
             this.y = this.vertical;
+            this.isColliding = false;
             game.addChild(this);
         }
 

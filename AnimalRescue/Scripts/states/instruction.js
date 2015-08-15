@@ -1,5 +1,6 @@
 var state;
 (function (state) {
+    // Instruction class
     var Instruction = (function () {
         // Instruction state class
         function Instruction() {

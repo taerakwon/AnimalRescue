@@ -6,6 +6,7 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
+    // Tower class
     var Tower = (function (_super) {
         __extends(Tower, _super);
         // Constructor

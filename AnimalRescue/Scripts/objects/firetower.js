@@ -21,7 +21,7 @@ var objects;
             this.y = y;
             this.isAvailable = true;
             var fire;
-            fire = new objects.Missle("fire", this.x + 40, this.y + 40, this.attackSpeed);
+            fire = new objects.Missle("fire", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
             missleArray.push(fire);
         }
         Firetower.prototype.destroy = function () {

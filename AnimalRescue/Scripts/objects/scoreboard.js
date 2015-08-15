@@ -1,5 +1,6 @@
 var objects;
 (function (objects) {
+    // Scoreboard class
     var ScoreBoard = (function () {
         // CONSTRUCTOR +++++++++++++++++++
         function ScoreBoard() {

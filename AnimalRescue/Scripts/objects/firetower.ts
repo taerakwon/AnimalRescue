@@ -13,7 +13,7 @@
             this.y = y;
             this.isAvailable = true;
             var fire;
-            fire = new Missle("fire", this.x + 40, this.y + 40, this.attackSpeed);
+            fire = new Missle("fire", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
             missleArray.push(fire);
         }
 

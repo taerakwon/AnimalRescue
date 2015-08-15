@@ -26,7 +26,7 @@ var objects;
             }
         };
         Bowhunter.prototype.destroy = function () {
-            game.removeAllChildren();
+            game.removeChild(this);
         };
         return Bowhunter;
     })(createjs.Sprite);
