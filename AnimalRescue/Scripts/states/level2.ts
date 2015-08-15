@@ -1,6 +1,7 @@
 ﻿module state {
     var money: number;
     var timer: number;
+
     // Level2 state class
     export class Level2 {
         // Private variables
@@ -11,18 +12,21 @@
         private icetowerBtn: objects.Button;
         private rocktowerBtn: objects.Button;
         private goldtowerBtn: objects.Button;
-        private bowhunter: objects.Bowhunter;
+        private knifehunter: objects.Knifehunter;
 
-        constructor() {
+
+        constructor() {                   
             this._Main();
+            // Give more money in level 2  
+            scoreBoard.startMoney += 50;            
         }
 
         // Update Method
         public update() {
             scoreBoard.update();
             collision.update();
-            for (var hunter = 0; hunter < 10; hunter++) {
-                bowhunters[hunter].update();
+            for (var hunter = 0; hunter < 15; hunter++) {
+                knifehunters[hunter].update();
             }
 
             for (var tower = 0; tower < goldTowerArray.length; tower++) {
@@ -35,7 +39,7 @@
 
             for (var missle = 0; missle < missleArray.length; missle++) {
                 missleArray[missle].update();
-            }            
+            }
         }
 
 
@@ -82,13 +86,13 @@
             // Add Scoreboard 
             scoreBoard = new objects.ScoreBoard();
             
-            // Add Bowhunter
-            for (var i = 0; i < 10; i++) {
-                bowhunters[i] = new objects.Bowhunter("hunter");
-                bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -1;
-                bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
-                game.addChild(bowhunters[i]);
+            // Add Knife hunter
+            for (var i = 0; i < 15; i++) {
+                knifehunters[i] = new objects.Knifehunter("ahunter");;
+                knifehunters[i].x = 800 + (200 * i);
+                knifehunters[i].dx = -0.4 // Speed of Knife hunter
+                knifehunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
+                game.addChild(knifehunters[i]);
             }
 
             // Add Grass
@@ -98,7 +102,7 @@
             game.addChild(this.level1Grass);   
 
             // Instantiate Collision
-            collision = new managers.Collision(bowhunters, missleArray);
+            collision = new managers.Collision(knifehunters, missleArray);
                         
             // Add game container to stage
             stage.addChild(game);
@@ -143,13 +147,19 @@
                 selectedTower = "firetower";
             }
             else if (scoreBoard.startMoney < 150) {
-            // Play Need Money Sound
-            createjs.Sound.play("needMoney");
+                // Play Need Money Sound
+                createjs.Sound.play("needMoney");
             }
         }
 
         private _destroy() {
             game.removeAllChildren();
+            stage.removeAllChildren();
+            // To reset tower arrays
+            goldTowerArray = [];
+            rockTowerArray = [];
+            iceTowerArray = [];
+            fireTowerArray = [];
         }
 
     }

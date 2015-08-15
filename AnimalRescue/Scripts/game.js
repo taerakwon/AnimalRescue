@@ -69,6 +69,8 @@ var towerBuilt = 0;
 var goldTowerBuilt = 0;
 var bowhunter;
 var bowhunters = [];
+var knifehunters = [];
+var riflehunters = [];
 var gameOver = false;
 var goldTowerArray = [];
 var rockTowerArray = [];

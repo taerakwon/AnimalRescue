@@ -3,7 +3,7 @@
     // Scoreboard class
     export class ScoreBoard {
         // PUBLIC PROPERTIES        
-        public startMoney: number = 300;
+        public startMoney: number = 100;
         public score: number;
         private scoreLabel: objects.Label;
         private moneyLabel: objects.Label;
@@ -12,9 +12,8 @@
         // CONSTRUCTOR +++++++++++++++++++
         constructor() {
             this.score = score;
-            this.moneyLabel = new objects.Label(this.startMoney.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 90, 40);
-            this.scoreLabel = new objects.Label(this.score.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 630, 40);
-            this.scoreLabel.textAlign = "center";
+            this.moneyLabel = new objects.Label(this.startMoney.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 120, 40);
+            this.scoreLabel = new objects.Label(this.score.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 640, 40);
             game.addChild(this.moneyLabel);
             game.addChild(this.scoreLabel);
 
@@ -29,18 +28,19 @@
             // If state is play state
             if (currentState == config.PLAY_STATE)
             {
-                if (score > 500) {
+                // When last hunter is killed, move to stage 2
+                if (score == 10) {
                     currentState = config.LEVEL2_STATE;
-                    changeState();
+                    setTimeout(() => changeState(), 500);
                 }                
             }
 
             // If state is level 2
             else if (currentState == config.LEVEL2_STATE)
             {
-                if (score > 1000) {
+                if (score == 25) {
                     currentState = config.LEVEL3_STATE;
-                    changeState();
+                    setTimeout(() => changeState(), 500);
                 }
             }
 

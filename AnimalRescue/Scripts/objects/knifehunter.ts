@@ -2,19 +2,28 @@
 
     // Bow hunter class 
     export class Knifehunter extends createjs.Sprite {
+        public height: number;
+        public width: number;
+        public health: number = 300;
+        public dead: boolean = false;
         dx: number;
         damage: number = 25;
-        health: number = 300;
 
         constructor(imageString: string) {
-            super(assets.bowhunterAtlas, imageString);
+            super(assets.knifehunterAtlas, imageString);
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
         }
+
 
         update() {
             this.x += this.dx;
-            if (this.x == 50) {
+            if (this.x <= 50) {
                 this.destroy();
-                currentState = config.START_STATE;
+                game.removeAllChildren();
+                stage.removeAllChildren();
+                missleArray = [];
+                currentState = config.END_STATE;
                 changeState();
             }
         }

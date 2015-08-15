@@ -16,6 +16,7 @@ module state {
 
         constructor() {
             this._Main();
+            scoreBoard.score = 0;
         }
 
         // Update Method
@@ -43,10 +44,12 @@ module state {
         // Main method
         private _Main() {
             this._destroy();
+            game.removeAllChildren();
+            stage.removeAllChildren();
              
             // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
-            game.addChild(this.level1Background);
+            game.addChild(this.level1Background);            
 
             // Adding 6x4 grid to the game
             grid = new logic.Grid();                                            
@@ -86,7 +89,7 @@ module state {
             for (var i = 0; i < 10; i++) {
                 bowhunters[i] = new objects.Bowhunter("hunter");
                 bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -1;
+                bowhunters[i].dx = -0.3 // Speed of hunter
                 bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunters[i]);
             }
@@ -150,6 +153,11 @@ module state {
 
         private _destroy() {
             game.removeAllChildren();
+            // To reset tower arrays
+            goldTowerArray = [];
+            rockTowerArray = [];
+            iceTowerArray = [];
+            fireTowerArray = [];
         }
 
     }

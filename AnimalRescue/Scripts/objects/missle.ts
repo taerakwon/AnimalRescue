@@ -3,38 +3,36 @@
     export class Missle extends objects.GameObject {
         public height: number;
         public width: number;
-        private horizontal: number;
-        private vertical: number;
-        private attackSpeed: number;
+        private _counter: number = 30000;
+        private _horizontal: number;
+        private _vertical: number;
+        private _attackSpeed: number;
         constructor(imageString: string, x: number, y: number, speed: number, damage: number) {
             super(imageString);
             this.damage = damage;
-            this.vertical = y;
-            this.horizontal = x;
-            this.attackSpeed = speed;
+            this._vertical = y;
+            this._horizontal = x;
+            this._attackSpeed = speed;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-            this.x = this.horizontal;
-            this.y = this.vertical;
+            this.x = this._horizontal;
+            this.y = this._vertical;
             this.isColliding = false;
             game.addChild(this);
         }
 
-        public update(): void {
-            this.x += this.attackSpeed;
-            if (this.x > 710) {
+        public update() {
+            this.x += this._attackSpeed;
+            if (this.x > 700) {
                 game.removeChild(this);
                 this.reset();
             }
-
-            //if (this.x > 710) {
-            //    this.reset();
-            //}
         }
+
         // resets missle back to original position where tower was built
         public reset(): void {
-            this.x = this.horizontal;
-            this.y = this.vertical;
+            this.x = this._horizontal;
+            this.y = this._vertical;
             game.addChild(this);
             this.update();
         }

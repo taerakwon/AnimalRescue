@@ -97,6 +97,8 @@ var towerBuilt: number = 0;
 var goldTowerBuilt: number = 0;
 var bowhunter: objects.Bowhunter;
 var bowhunters: objects.Bowhunter[] = [];
+var knifehunters: objects.Knifehunter[] = [];
+var riflehunters: objects.Riflehunter[] = [];
 var gameOver: boolean = false;
 
 var goldTowerArray: objects.Goldtower[] = [];

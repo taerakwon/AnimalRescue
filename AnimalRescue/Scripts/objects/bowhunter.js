@@ -11,15 +11,18 @@ var objects;
         __extends(Bowhunter, _super);
         function Bowhunter(imageString) {
             _super.call(this, assets.bowhunterAtlas, imageString);
-            this.health = 300;
+            this.health = 200;
             this.damage = 25;
+            this.dead = false;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
         }
         Bowhunter.prototype.update = function () {
             this.x += this.dx;
-            if (this.x == 50) {
+            if (this.x <= 50) {
                 this.destroy();
+                game.removeAllChildren();
+                stage.removeAllChildren();
                 missleArray = [];
                 currentState = config.END_STATE;
                 changeState();

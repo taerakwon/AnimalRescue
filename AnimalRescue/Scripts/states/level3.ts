@@ -11,18 +11,20 @@
         private icetowerBtn: objects.Button;
         private rocktowerBtn: objects.Button;
         private goldtowerBtn: objects.Button;
-        private bowhunter: objects.Bowhunter;
+        private riflehunter: objects.Riflehunter;
 
-        constructor() {
+        constructor() {         
             this._Main();
+            // Give more money in level 3
+            scoreBoard.startMoney += 100;  
         }
 
         // Update Method
         public update() {
             scoreBoard.update();
             collision.update();
-            for (var hunter = 0; hunter < 10; hunter++) {
-                bowhunters[hunter].update();
+            for (var hunter = 0; hunter < 20; hunter++) {
+                riflehunters[hunter].update();
             }
 
             for (var tower = 0; tower < goldTowerArray.length; tower++) {
@@ -44,13 +46,14 @@
         private _Main() {
             missleArray = [];
             this._destroy();
+            
              
             // Instatiate level1Background
             this.level1Background = new createjs.Bitmap(assets.loader.getResult("level3"));
             game.addChild(this.level1Background);
 
             // Adding 6x4 grid to the game
-            grid = new logic.Grid();                                            
+            grid = new logic.Grid();               
 
             // Add Tower Buttons
 
@@ -83,13 +86,13 @@
             // Add Scoreboard 
             scoreBoard = new objects.ScoreBoard();
             
-            // Add Bowhunter
-            for (var i = 0; i < 10; i++) {
-                bowhunters[i] = new objects.Bowhunter("hunter");
-                bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -1;
-                bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
-                game.addChild(bowhunters[i]);
+            // Add Rifle hunter
+            for (var i = 0; i < 20; i++) {
+                riflehunters[i] = new objects.Riflehunter("rhunter");
+                riflehunters[i].x = 800 + (200 * i);
+                riflehunters[i].dx = -0.5; // Speed of Rifle hunter
+                riflehunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
+                game.addChild(riflehunters[i]);
             }
 
             // Add Grass
@@ -99,7 +102,7 @@
             game.addChild(this.level1Grass);   
 
             // Instantiate Collision
-            collision = new managers.Collision(bowhunters, missleArray);
+            collision = new managers.Collision(riflehunters, missleArray);
                         
             // Add game container to stage
             stage.addChild(game);
@@ -151,6 +154,12 @@
 
         private _destroy() {
             game.removeAllChildren();
+            stage.removeAllChildren();
+            // To reset tower arrays
+            goldTowerArray = [];
+            rockTowerArray = [];
+            iceTowerArray = [];
+            fireTowerArray = [];
         }
 
     }

@@ -45,6 +45,12 @@
         private _destroy() {
             this.laugh.stop();
             game.removeAllChildren();
+            stage.removeAllChildren();
+            // To reset tower arrays
+            goldTowerArray = [];
+            rockTowerArray = [];
+            iceTowerArray = [];
+            fireTowerArray = [];
         }
 
         // Instruction Method
@@ -57,7 +63,7 @@
 
         // Replay Method
         private _replayButtonClick(event: createjs.MouseEvent) {
-            this._destroy();
+            this._destroy();            
             currentState = config.PLAY_STATE;
             changeState();
             this.startArrow.off("click", this._replayButtonClick);

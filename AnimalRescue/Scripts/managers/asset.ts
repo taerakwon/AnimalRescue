@@ -153,16 +153,10 @@
             ],
 
             "animations": {
-
-                "ahunter02": [2],
-                "ahunter03": [0],
-                "ahunter04": [1],
-                "ahunter05": [3],
-                "ahunter06": [6],
-                "ahunter07": [8],
-                "ahunter08": [5],
-                "ahunter09": [4],
-                "ahunter10": [7]
+                "ahunter": {
+                    frames: [2, 0, 1, 3, 6, 8, 5, 4, 7],
+                    speed: 0.15
+                }
             }
         };
 
@@ -186,15 +180,10 @@
             ],
 
             "animations": {
-                "rhunter02": [3],
-                "rhunter03": [0],
-                "rhunter04": [1],
-                "rhunter05": [2],
-                "rhunter06": [6],
-                "rhunter07": [8],
-                "rhunter08": [5],
-                "rhunter09": [4],
-                "rhunter10": [7]
+                "rhunter": {
+                    frames: [3, 0, 1, 2, 6, 8, 5, 4, 7],
+                    speed: 0.15
+                }
             }
         };
 

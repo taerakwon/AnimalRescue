@@ -8,7 +8,7 @@
             this.cost = 100;
             this.attackSpeed = 3;
             this.health = 200;
-            this.damage = 50;
+            this.damage = 75;
             this.x = x;
             this.y = y;
             this.isAvailable = true;
