@@ -1,5 +1,6 @@
 ﻿module state {
     export class End {
+        private laugh = createjs.Sound.play("laugh");
         private end: createjs.Bitmap;
         private startArrow: objects.Button;
         private replayButton: objects.Button;
@@ -17,7 +18,7 @@
         
             game.removeAllChildren();
             // Add Laugh Sound
-            createjs.Sound.play("laugh");
+            this.laugh.play();
 
             // Add introduction 
             this.end = new createjs.Bitmap(assets.loader.getResult("gameOver"));
@@ -41,6 +42,7 @@
 
         // Destroy Method
         private _destroy() {
+            this.laugh.stop();
             game.removeAllChildren();
         }
 
