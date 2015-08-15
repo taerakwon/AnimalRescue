@@ -61,6 +61,8 @@
   <ItemGroup>
     <Content Include="assets\audio\bgm.mp3" />
     <Content Include="assets\audio\click.mp3" />
+    <Content Include="assets\audio\laugh.mp3" />
+    <Content Include="assets\audio\needMoney.mp3" />
     <Content Include="assets\images\bowhunterAtlas.png" />
     <Content Include="assets\images\buttonAtlas.png" />
     <Content Include="assets\images\empty.png" />

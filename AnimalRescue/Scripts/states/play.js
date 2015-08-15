@@ -59,7 +59,7 @@ var state;
             for (var i = 0; i < 10; i++) {
                 bowhunters[i] = new objects.Bowhunter("hunter");
                 bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -5;
+                bowhunters[i].dx = -2;
                 bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunters[i]);
             }
@@ -77,7 +77,8 @@ var state;
                 selectedTower = "goldtower";
             }
             else if (scoreBoard.startMoney < 50) {
-                window.alert("Not enought money");
+                // Play Need Money Sound
+                createjs.Sound.play("needMoney");
             }
         };
         // Method when rock tower button has been clicked
@@ -86,7 +87,8 @@ var state;
                 selectedTower = "rocktower";
             }
             else if (scoreBoard.startMoney < 50) {
-                window.alert("Not enought money");
+                // Play Need Money Sound
+                createjs.Sound.play("needMoney");
             }
         };
         // Method when ice tower button has been clicked
@@ -95,7 +97,8 @@ var state;
                 selectedTower = "icetower";
             }
             else if (scoreBoard.startMoney < 100) {
-                window.alert("Not enought money");
+                // Play Need Money Sound
+                createjs.Sound.play("needMoney");
             }
         };
         // Method when fire tower button has been clicked
@@ -104,7 +107,8 @@ var state;
                 selectedTower = "firetower";
             }
             else if (scoreBoard.startMoney < 150) {
-                window.alert("Not enought money");
+                // Play Need Money Sound
+                createjs.Sound.play("needMoney");
             }
         };
         // Method to update each towers in placedTower array

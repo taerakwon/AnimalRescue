@@ -17,8 +17,10 @@ var managers;
                 { id: "gold", src: "assets/images/gold.png" },
                 { id: "gameOver", src: "assets/images/gameover.png" },
                 //sounds
+                { id: "bgm", src: "assets/audio/bgm.mp3" },
                 { id: "click", src: "assets/audio/click.mp3" },
-                { id: "bgm", src: "assets/audio/bgm.mp3" }
+                { id: "needMoney", src: "assets/audio/needMoney.mp3" },
+                { id: "laugh", src: "assets/audio/laugh.mp3" }
             ];
             this.buttonManifest = {
                 "images": [
