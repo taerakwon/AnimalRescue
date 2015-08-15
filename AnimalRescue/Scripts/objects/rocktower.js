@@ -16,7 +16,7 @@ var objects;
             this.cost = 50;
             this.health = 100;
             this.damage = 50;
-            this.attackSpeed = 5;
+            this.attackSpeed = 2;
             this.isAvailable = true;
             this.x = x;
             this.y = y;

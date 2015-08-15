@@ -76,7 +76,7 @@ var fireTowerArray = [];
 var iceTowerArray = [];
 var missle;
 var missleArray = [];
-var score;
+var score = 0;
 // Preloader Function
 function preload() {
     assets = new managers.Assets();

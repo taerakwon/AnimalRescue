@@ -4,16 +4,20 @@
     export class ScoreBoard {
         // PUBLIC PROPERTIES        
         public startMoney: number = 300;
-        public score: number = 0;
+        public score: number;
         private scoreLabel: objects.Label;
         private moneyLabel: objects.Label;
 
+
         // CONSTRUCTOR +++++++++++++++++++
         constructor() {
+            this.score = score;
             this.moneyLabel = new objects.Label(this.startMoney.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 90, 40);
             this.scoreLabel = new objects.Label(this.score.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 630, 40);
+            this.scoreLabel.textAlign = "center";
             game.addChild(this.moneyLabel);
             game.addChild(this.scoreLabel);
+
         }
 
         // PUBLIC METHODS +++++++++++++++++
@@ -25,16 +29,16 @@
             // If state is play state
             if (currentState == config.PLAY_STATE)
             {
-                if (score > 3000) {
+                if (score > 500) {
                     currentState = config.LEVEL2_STATE;
                     changeState();
-                }
+                }                
             }
 
             // If state is level 2
             else if (currentState == config.LEVEL2_STATE)
             {
-                if (score > 9000) {
+                if (score > 1000) {
                     currentState = config.LEVEL3_STATE;
                     changeState();
                 }

@@ -106,7 +106,7 @@ var iceTowerArray: objects.Icetower[] = [];
 var missle: objects.Missle;
 var missleArray: objects.Missle[] = [];
 
-var score: number;
+var score: number = 0;
 
 
 

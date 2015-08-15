@@ -6,9 +6,10 @@ var objects;
         function ScoreBoard() {
             // PUBLIC PROPERTIES        
             this.startMoney = 300;
-            this.score = 0;
+            this.score = score;
             this.moneyLabel = new objects.Label(this.startMoney.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 90, 40);
             this.scoreLabel = new objects.Label(this.score.toString(), config.FONT_MEDIUM, config.FONT_FAMILY, config.FONT_WHITE, 630, 40);
+            this.scoreLabel.textAlign = "center";
             game.addChild(this.moneyLabel);
             game.addChild(this.scoreLabel);
         }
@@ -19,13 +20,13 @@ var objects;
             score = this.score; // To set global score
             // If state is play state
             if (currentState == config.PLAY_STATE) {
-                if (score > 3000) {
+                if (score > 500) {
                     currentState = config.LEVEL2_STATE;
                     changeState();
                 }
             }
             else if (currentState == config.LEVEL2_STATE) {
-                if (score > 9000) {
+                if (score > 1000) {
                     currentState = config.LEVEL3_STATE;
                     changeState();
                 }
