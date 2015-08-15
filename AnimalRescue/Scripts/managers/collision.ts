@@ -36,17 +36,18 @@
             p2.x = enemy.x;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((missle.height * 0.5) + (enemy.height * 0.5))) {
-                scoreBoard.score += 100;
+                scoreBoard.score += 100;                
             }
         }
 
         // Utility Function to Check Collisions
         update() {
             if (missleArray.length > 0) {
-                if (bowhunters.length > 0) {
-                    for (var count = 0; count < bowhunters.length; count++) {
-                        this.bulletAndEnemy(this.missles[0], this.enemies[count]);
-                    }
+                    for (var count = 0; count < missleArray.length; count++) {
+                        for (var count = 0; count < bowhunters.length; count++) {
+                            this.enemies[count].health -= 10;
+                            this.bulletAndEnemy(this.missles[0], this.enemies[count]);
+                        }
                 }
             }
         }

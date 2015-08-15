@@ -1,3 +1,4 @@
+/// <reference path="states/level3.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="typings/stats/stats.d.ts" />
@@ -18,6 +19,8 @@
 /// <reference path="states/start.ts" />
 /// <reference path="states/instruction.ts" />
 /// <reference path="states/play.ts" />
+/// <reference path="states/level2.ts" />
+/// <reference path="states/level3.ts" />
 /// <reference path="states/end.ts" />
 /// <reference path="objects/towers.ts" />
 /// <reference path="objects/goldtower.ts" />
@@ -42,6 +45,8 @@ var currentState;
 var start;
 var instruction;
 var play;
+var level2;
+var level3;
 var end;
 // Background Variables
 var gradient;
@@ -71,6 +76,7 @@ var fireTowerArray = [];
 var iceTowerArray = [];
 var missle;
 var missleArray = [];
+var score;
 // Preloader Function
 function preload() {
     assets = new managers.Assets();
@@ -129,6 +135,18 @@ function changeState() {
             // Instantiate play state
             play = new state.Play();
             currentStateFunction = play;
+            break;
+        case config.LEVEL2_STATE:
+            game.removeAllChildren();
+            // Instantiate play state
+            level2 = new state.Level2();
+            currentStateFunction = level2;
+            break;
+        case config.LEVEL3_STATE:
+            game.removeAllChildren();
+            // Instantiate play state
+            level3 = new state.Level3();
+            currentStateFunction = level3;
             break;
         case config.END_STATE:
             // Instantiate end state

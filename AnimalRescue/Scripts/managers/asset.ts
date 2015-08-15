@@ -18,7 +18,11 @@
             { id: "gradient", src: "assets/images/gradient.png" },
             { id: "introduction", src: "assets/images/introduction.png" },
             { id: "level1", src: "assets/images/level1.png" },
+            { id: "level2", src: "assets/images/level2.png" },
+            { id: "level3", src: "assets/images/level3.png" },
             { id: "level1Grass", src: "assets/images/level1Grass.png" },
+            { id: "level2Tree", src: "assets/images/level2Tree.png" },
+            { id: "level3Mist", src: "assets/images/level3Mist.png" },                        
             { id: "fire", src: "assets/images/fire.png" },
             { id: "ice", src: "assets/images/ice.png" },
             { id: "rock", src: "assets/images/rock.png" },
@@ -32,6 +36,7 @@
             { id: "laugh", src: "assets/audio/laugh.mp3" }            
         ];
 
+        // Assets for buttons
         private buttonManifest = {
             "images": [
                 "assets/images/buttonAtlas.png"
@@ -77,6 +82,7 @@
             }
         };
 
+        // Assets for towers
         private towerManifest = {
             "images": [
                 "assets/images/towerAtlas.png"
@@ -101,6 +107,7 @@
             }
         };
 
+        // Assets for bowhunters
         private bowhunterManifest = {
             "images": [
                 "assets/images/bowhunterAtlas.png"
@@ -126,6 +133,7 @@
             }
         };
 
+        // Assets for Knife hunters
         private knifehunterManifest = {
             "images": [
                 "assets/images/knifeHunterAtlas.png"
@@ -158,6 +166,7 @@
             }
         };
 
+        // Assets for rifle hunters
         private riflehunterManifest = {
             "images": [
                 "assets/images/rifleHunterAtlas.png"

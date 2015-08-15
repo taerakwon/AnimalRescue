@@ -6,7 +6,7 @@
             this.name = "icetower";
             this.sound = "icetower";
             this.cost = 100;
-            this.attackSpeed = 2;
+            this.attackSpeed = 4;
             this.health = 200;
             this.damage = 50;
             this.x = x;

@@ -19,7 +19,7 @@
         }
 
         public update(): void {
-            this.x += 2;
+            this.x += this.attackSpeed;
             if (this.x > 710) {
                 game.removeChild(this);
                 this.reset();

@@ -60,7 +60,7 @@ var state;
             for (var i = 0; i < 10; i++) {
                 bowhunters[i] = new objects.Bowhunter("hunter");
                 bowhunters[i].x = 800 + (200 * i);
-                bowhunters[i].dx = -2;
+                bowhunters[i].dx = -1;
                 bowhunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(bowhunters[i]);
             }
@@ -114,16 +114,6 @@ var state;
                 createjs.Sound.play("needMoney");
             }
         };
-        // Method to update each towers in placedTower array
-        /*
-        private _towersUpdate() {
-            if (placedTower.length > 0) {
-                for (var index in placedTower) {
-                    placedTower[index].update();
-                }
-            }
-        }
-        */
         Play.prototype._destroy = function () {
             game.removeAllChildren();
         };

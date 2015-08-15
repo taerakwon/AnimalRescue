@@ -131,6 +131,8 @@
     <TypeScriptCompile Include="Scripts\objects\towers.ts" />
     <TypeScriptCompile Include="Scripts\states\end.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
+    <TypeScriptCompile Include="Scripts\states\level2.ts" />
+    <TypeScriptCompile Include="Scripts\states\level3.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\states\start.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />

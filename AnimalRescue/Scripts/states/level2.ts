@@ -3,7 +3,7 @@ module state {
     var money: number;
     var timer: number;
 
-    export class Play {
+    export class Level2 {
         // Private variables
         private level1Background: createjs.Bitmap;
         private moneyLabel: objects.Label;
@@ -36,16 +36,17 @@ module state {
 
             for (var missle = 0; missle < missleArray.length; missle++) {
                 missleArray[missle].update();
-            }
+            }            
         }
 
 
         // Main method
         private _Main() {
+            missleArray = [];
             this._destroy();
              
             // Instatiate level1Background
-            this.level1Background = new createjs.Bitmap(assets.loader.getResult("level1"));
+            this.level1Background = new createjs.Bitmap(assets.loader.getResult("level2"));
             game.addChild(this.level1Background);
 
             // Adding 6x4 grid to the game
@@ -92,7 +93,7 @@ module state {
             }
 
             // Add Grass
-            this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level1Grass"));
+            this.level1Grass = new createjs.Bitmap(assets.loader.getResult("level2Tree"));
             this.level1Grass.x = 700;
             this.level1Grass.y = 100;
             game.addChild(this.level1Grass);   
@@ -143,8 +144,8 @@ module state {
                 selectedTower = "firetower";
             }
             else if (scoreBoard.startMoney < 150) {
-                // Play Need Money Sound
-                createjs.Sound.play("needMoney");
+            // Play Need Money Sound
+            createjs.Sound.play("needMoney");
             }
         }
 
@@ -153,4 +154,4 @@ module state {
         }
 
     }
-}
+} 

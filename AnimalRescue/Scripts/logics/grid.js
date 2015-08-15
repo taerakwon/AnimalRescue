@@ -1,13 +1,15 @@
 var logic;
 (function (logic) {
     var generated = false;
+    // Grid Class used to create grid system
     var Grid = (function () {
         function Grid() {
-            gridArray = [];
+            gridArray = []; // To refresh Grid array in every game state         
             this._gridGenerator();
         }
         Grid.prototype.update = function () {
         };
+        // Method to generate grid
         Grid.prototype._gridGenerator = function () {
             var rowCells = 6;
             var columnCells = 4;
@@ -27,10 +29,10 @@ var logic;
                     cellNumber += 1;
                     cellArray.push(cell);
                 }
-                gridArray.push(cellArray);
-                console.log("vertical: " + i);
+                gridArray.push(cellArray); // Pushing arrays into gridArray
                 row += 1;
             }
+            // Adding grid object into game
             for (var arrayIndex in gridArray) {
                 game.addChild(gridArray[arrayIndex][0]);
                 game.addChild(gridArray[arrayIndex][1]);
@@ -41,13 +43,16 @@ var logic;
             }
             generated = true;
         };
+        // Mouse click event
         Grid.prototype.onClickEvent = function (event) {
             var tower;
             // First row ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // First row First Column
             gridArray[0][0].on("click", function (event) {
                 createjs.Sound.play("click");
                 if (gridArray[0][0].name == "empty") {
                     if (selectedTower != "empty") {
+                        // Switch for tower built
                         switch (selectedTower) {
                             case "rocktower":
                                 tower = new objects.Rocktower(selectedTower, gridArray[0][0].x, gridArray[0][0].y);

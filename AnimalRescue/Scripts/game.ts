@@ -1,4 +1,5 @@
-﻿/// <reference path="objects/scoreboard.ts" />
+﻿/// <reference path="states/level3.ts" />
+/// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="typings/stats/stats.d.ts" />
 /// <reference path="typings/easeljs/easeljs.d.ts" />
@@ -24,6 +25,8 @@
 /// <reference path="states/start.ts" />
 /// <reference path="states/instruction.ts" />
 /// <reference path="states/play.ts" />
+/// <reference path="states/level2.ts" />
+/// <reference path="states/level3.ts" />
 /// <reference path="states/end.ts" />
 
 
@@ -65,6 +68,8 @@ var currentState: number;
 var start: state.Start;
 var instruction: state.Instruction;
 var play: state.Play;
+var level2: state.Level2;
+var level3: state.Level3;
 var end: state.End;
 
 // Background Variables
@@ -100,6 +105,8 @@ var fireTowerArray: objects.Firetower[] = [];
 var iceTowerArray: objects.Icetower[] = [];
 var missle: objects.Missle;
 var missleArray: objects.Missle[] = [];
+
+var score: number;
 
 
 
@@ -171,6 +178,18 @@ function changeState() {
             // Instantiate play state
             play = new state.Play();
             currentStateFunction = play;
+            break;
+        case config.LEVEL2_STATE:
+            game.removeAllChildren();
+            // Instantiate play state
+            level2 = new state.Level2();
+            currentStateFunction = level2;
+            break;
+        case config.LEVEL3_STATE:
+            game.removeAllChildren();
+            // Instantiate play state
+            level3 = new state.Level3();
+            currentStateFunction = level3;
             break;
         case config.END_STATE:
             // Instantiate end state

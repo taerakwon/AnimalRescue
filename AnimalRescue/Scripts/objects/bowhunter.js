@@ -11,8 +11,8 @@ var objects;
         __extends(Bowhunter, _super);
         function Bowhunter(imageString) {
             _super.call(this, assets.bowhunterAtlas, imageString);
-            this.damage = 25;
             this.health = 300;
+            this.damage = 25;
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
         }

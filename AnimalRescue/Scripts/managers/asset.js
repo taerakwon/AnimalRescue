@@ -10,7 +10,11 @@ var managers;
                 { id: "gradient", src: "assets/images/gradient.png" },
                 { id: "introduction", src: "assets/images/introduction.png" },
                 { id: "level1", src: "assets/images/level1.png" },
+                { id: "level2", src: "assets/images/level2.png" },
+                { id: "level3", src: "assets/images/level3.png" },
                 { id: "level1Grass", src: "assets/images/level1Grass.png" },
+                { id: "level2Tree", src: "assets/images/level2Tree.png" },
+                { id: "level3Mist", src: "assets/images/level3Mist.png" },
                 { id: "fire", src: "assets/images/fire.png" },
                 { id: "ice", src: "assets/images/ice.png" },
                 { id: "rock", src: "assets/images/rock.png" },
@@ -22,6 +26,7 @@ var managers;
                 { id: "needMoney", src: "assets/audio/needMoney.mp3" },
                 { id: "laugh", src: "assets/audio/laugh.mp3" }
             ];
+            // Assets for buttons
             this.buttonManifest = {
                 "images": [
                     "assets/images/buttonAtlas.png"
@@ -63,6 +68,7 @@ var managers;
                     "goldtower": [15]
                 }
             };
+            // Assets for towers
             this.towerManifest = {
                 "images": [
                     "assets/images/towerAtlas.png"
@@ -84,6 +90,7 @@ var managers;
                     "empty": [5]
                 }
             };
+            // Assets for bowhunters
             this.bowhunterManifest = {
                 "images": [
                     "assets/images/bowhunterAtlas.png"
@@ -106,6 +113,7 @@ var managers;
                     }
                 }
             };
+            // Assets for Knife hunters
             this.knifehunterManifest = {
                 "images": [
                     "assets/images/knifeHunterAtlas.png"
@@ -133,6 +141,7 @@ var managers;
                     "ahunter10": [7]
                 }
             };
+            // Assets for rifle hunters
             this.riflehunterManifest = {
                 "images": [
                     "assets/images/rifleHunterAtlas.png"

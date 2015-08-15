@@ -4,9 +4,10 @@
     export class Bowhunter extends createjs.Sprite {
         public height: number;
         public width: number;
+        public health: number = 300;
         dx: number;
         damage: number = 25;
-        health: number = 300;
+
 
         constructor(imageString: string) {
             super(assets.bowhunterAtlas, imageString);
