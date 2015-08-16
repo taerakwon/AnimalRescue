@@ -21,8 +21,8 @@ var state;
             for (var tower = 0; tower < rockTowerArray.length; tower++) {
                 rockTowerArray[tower].update();
             }
-            for (var missle = 0; missle < missleArray.length; missle++) {
-                missleArray[missle].update();
+            for (var missile = 0; missile < missileArray.length; missile++) {
+                missileArray[missile].update();
             }
         };
         // Main method
@@ -73,7 +73,7 @@ var state;
             this.level1Grass.y = 100;
             game.addChild(this.level1Grass);
             // Instantiate Collision
-            collision = new managers.Collision(bowhunters, missleArray);
+            collision = new managers.Collision(bowhunters, missileArray);
             // Add game container to stage
             stage.addChild(game);
         };

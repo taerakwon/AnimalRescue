@@ -11,18 +11,19 @@ var objects;
         __extends(Button, _super);
         // Constructor
         function Button(imageString, imageString1) {
-            this.image = imageString;
-            this.image1 = imageString1;
+            this._image = imageString;
+            this._image1 = imageString1;
             _super.call(this, assets.buttonAtlas, imageString);
             this.on("mouseover", this.over, this);
             this.on("mouseout", this.out, this);
         }
         // Public methods
+        // When mouse is placed over
         Button.prototype.over = function (event) {
-            this.gotoAndStop(this.image1);
+            this.gotoAndStop(this._image1);
         };
         Button.prototype.out = function (event) {
-            this.gotoAndStop(this.image);
+            this.gotoAndStop(this._image);
         };
         return Button;
     })(createjs.Sprite);

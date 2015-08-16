@@ -6,24 +6,24 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Firetower class
+    // Ice tower class
     var Icetower = (function (_super) {
         __extends(Icetower, _super);
+        // Constructor
         function Icetower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "icetower";
-            this.sound = "icetower";
-            this.cost = 100;
-            this.attackSpeed = 3;
-            this.health = 200;
-            this.damage = 75;
+            this.cost = 100; // Tower cost
+            this.attackSpeed = 3; // Tower attack speed
+            this.damage = 100; // Tower damage
             this.x = x;
             this.y = y;
             this.isAvailable = true;
             var ice;
-            ice = new objects.Missle("ice", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
-            missleArray.push(ice);
+            ice = new objects.Missile("ice", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
+            missileArray.push(ice); // Pushing into missleArray
         }
+        // Destroy Method
         Icetower.prototype.destroy = function () {
             game.removeChild(this);
         };

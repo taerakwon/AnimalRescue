@@ -3,12 +3,13 @@
     export class Collision {
         // Private variables
         private _enemies = [];
-        private _missles = [];
+        private _missiles = [];
         private beBack = createjs.Sound;
 
-        constructor(enemies?, missles?) {
+        // Constructor passing unknown enemies and missles array
+        constructor(enemies?, missiles?) {
             this._enemies = enemies;
-            this._missles = missles;
+            this._missiles = missiles;
         }
 
         // Utility method - Distance calculation between two points
@@ -29,26 +30,27 @@
         }
 
         // check collision between bullet and any enemy object
-        private _bulletAndEnemy(missle: objects.Missle, enemy: objects.Bowhunter) {
+        private _bulletAndEnemy(missile: objects.Missile, enemy: objects.Bowhunter) {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
-            p1.x = missle.x;
-            p1.y = missle.y;
+            p1.x = missile.x;
+            p1.y = missile.y;
             p2.x = enemy.x;
             p2.y = enemy.y;
-            if ((this._distance(p1, p2)) < ((missle.width * 0.1) + (enemy.width * 0.5))) {
-                enemy.health -= missle.damage;
-                missle.x = -10000;
-                setTimeout(() => missle.reset(), 500);
+            if ((this._distance(p1, p2)) < ((missile.width * 0.1) + (enemy.width * 0.5))) {
+                enemy.health -= missile.damage;
+                missile.x = -10000;
+                setTimeout(() => missile.reset(), 1000);
             }
         }
 
         // Utility Function to Check Collisions
         update() {
             for (var counter = 0; counter < this._enemies.length; counter++) {
-                if (this._missles.length > 0) {
-                    for (var count = 0; count < this._missles.length; count++) {                        
-                        this._bulletAndEnemy(this._missles[count], this._enemies[counter]);                        
+                if (this._missiles.length > 0) {
+                    // Counting less than the number of missles array
+                    for (var count = 0; count < this._missiles.length; count++) {                        
+                        this._bulletAndEnemy(this._missiles[count], this._enemies[counter]);                        
                         if (this._enemies[counter].health <= 0) {
                             this.beBack.play("beback"); // Play I'll be back
                             this._enemies[counter].dead = true;
@@ -62,28 +64,6 @@
                     }
                 }
             }
-
-            /*
-            if (this.missles.length > 0) {
-                for (var count = 0; count < this.missles.length; count++) {
-                    this.bulletAndEnemy(this.missles[count], this.enemies[count]);
-                    console.log(this.enemies[count].health);
-                    if (this.enemies[count].health <= 0) {
-                        this.enemies[count].x = 10000;
-                    }
-                }
-            }
-            */
-
-
-            /*if (missleArray.length > 0) {
-                    for (var count = 0; count < missleArray.length; count++) {
-                        for (var count = 0; count < bowhunters.length; count++) {
-                            this.bulletAndEnemy(this.missles[0], this.enemies[count]);
-                        }
-                }
-            }
-            */
         }
     }
 } 

@@ -39,7 +39,7 @@
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
 
-/// <reference path="objects/missle.ts" />
+/// <reference path="objects/missile.ts" />
 
 
 
@@ -87,7 +87,7 @@ var goldTower: objects.Goldtower;
 var rockTower: objects.Rocktower;
 var iceTower: objects.Icetower;
 
-var missle: objects.Missle;
+var missile: objects.Missile;
 
 // Game Variables
 var scoreBoard: objects.ScoreBoard;
@@ -108,8 +108,8 @@ var goldTowerArray: objects.Goldtower[] = [];
 var rockTowerArray: objects.Rocktower[] = [];
 var fireTowerArray: objects.Firetower[] = [];
 var iceTowerArray: objects.Icetower[] = [];
-var missle: objects.Missle;
-var missleArray: objects.Missle[] = [];
+var missile: objects.Missile;
+var missileArray: objects.Missile[] = [];
 
 var score: number = 0;
 

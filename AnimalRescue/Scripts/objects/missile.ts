@@ -1,12 +1,12 @@
 ﻿module objects {    
-    // Missle class
-    export class Missle extends objects.GameObject {
+    // Missile class
+    export class Missile extends objects.GameObject {
         public height: number;
         public width: number;
-        private _counter: number = 30000;
-        private _horizontal: number;
-        private _vertical: number;
-        private _attackSpeed: number;
+        private _horizontal: number; // x value of tower
+        private _vertical: number; // y value of tower
+        private _attackSpeed: number; // attack speed of tower
+        // Constructor
         constructor(imageString: string, x: number, y: number, speed: number, damage: number) {
             super(imageString);
             this.damage = damage;
@@ -21,6 +21,7 @@
             game.addChild(this);
         }
 
+        // Update method
         public update() {
             this.x += this._attackSpeed;
             if (this.x > 700) {
@@ -29,7 +30,7 @@
             }
         }
 
-        // resets missle back to original position where tower was built
+        // resets missile back to original position where tower was built
         public reset(): void {
             this.x = this._horizontal;
             this.y = this._vertical;

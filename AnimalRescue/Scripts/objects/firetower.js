@@ -9,24 +9,25 @@ var objects;
     // Firetower class
     var Firetower = (function (_super) {
         __extends(Firetower, _super);
+        // Constructor
         function Firetower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "firetower";
-            this.sound = "firetower";
-            this.cost = 150;
-            this.attackSpeed = 4;
-            this.health = 300;
-            this.damage = 100;
+            this.cost = 150; // Cost of fire tower
+            this.attackSpeed = 4; // Attack speed
+            this.damage = 130; // Damage
             this.x = x;
             this.y = y;
             this.isAvailable = true;
             var fire;
-            fire = new objects.Missle("fire", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
-            missleArray.push(fire);
+            fire = new objects.Missile("fire", this.x + 40, this.y + 40, this.attackSpeed, this.damage);
+            missileArray.push(fire); // Pushing into missleArray
         }
+        // Destroy method
         Firetower.prototype.destroy = function () {
             game.removeChild(this);
         };
+        // Update method
         Firetower.prototype.update = function () {
         };
         return Firetower;

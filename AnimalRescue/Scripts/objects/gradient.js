@@ -6,7 +6,7 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Background Class +++++++++++++++++++++++++++++++++++++++
+    // Background Gradient Class +++++++++++++++++++++++++++++++++++++++
     var Gradient = (function (_super) {
         __extends(Gradient, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++

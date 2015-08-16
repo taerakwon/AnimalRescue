@@ -1,4 +1,5 @@
 ﻿module objects {
+    // GameObject class
     export class GameObject extends createjs.Bitmap {
 
         // Public properties

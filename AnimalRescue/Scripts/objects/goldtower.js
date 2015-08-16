@@ -9,26 +9,28 @@ var objects;
     // Firetower class
     var Goldtower = (function (_super) {
         __extends(Goldtower, _super);
+        // Constructor
         function Goldtower(towerName, x, y) {
             _super.call(this, towerName);
             this.name = "goldtower";
-            this.sound = "goldtower";
             this.cost = 50;
-            this.attackSpeed = 0;
-            this.health = 150;
+            this.attackSpeed = 0; // This tower does not attack
             this.damage = 0;
             this.isAvailable = true;
             this.x = x;
             this.y = y;
             goldTowerBuilt += 1;
         }
+        // Update method
         Goldtower.prototype.update = function () {
             console.log("goldtower");
             this._generateGold();
         };
+        // Generating gold method
         Goldtower.prototype._generateGold = function () {
             scoreBoard.startMoney += 0.05;
         };
+        //Destroy method
         Goldtower.prototype.destroy = function () {
             game.removeChild(this);
         };

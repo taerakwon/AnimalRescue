@@ -14,6 +14,7 @@ var objects;
             _super.call(this, assets.towerAtlas, imageString);
             this.sound = "";
         }
+        // Update method
         Tower.prototype._update = function () {
         };
         return Tower;

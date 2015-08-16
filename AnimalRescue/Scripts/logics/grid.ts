@@ -1,4 +1,5 @@
 ﻿module logic {
+    // If grid has been generated or not
     var generated: boolean = false;    
 
     // Grid Class used to create grid system

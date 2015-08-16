@@ -16,14 +16,14 @@
         constructor() {         
             this._Main();
             // Give more money in level 3
-            scoreBoard.startMoney += 150;  
+            scoreBoard.startMoney += 300;  
         }
 
         // Update Method
         public update() {
             scoreBoard.update();
             collision.update();
-            for (var hunter = 0; hunter < 20; hunter++) {
+            for (var hunter = 0; hunter < 10; hunter++) {
                 riflehunters[hunter].update();
             }
 
@@ -35,8 +35,8 @@
                 rockTowerArray[tower].update();
             }
 
-            for (var missle = 0; missle < missleArray.length; missle++) {
-                missleArray[missle].update();
+            for (var missile = 0; missile < missileArray.length; missile++) {
+                missileArray[missile].update();
             }
 
         }
@@ -44,7 +44,7 @@
 
         // Main method
         private _Main() {
-            missleArray = [];
+            missileArray = [];
             this._destroy();
             
              
@@ -87,10 +87,10 @@
             scoreBoard = new objects.ScoreBoard();
             
             // Add Rifle hunter
-            for (var i = 0; i < 20; i++) {
+            for (var i = 0; i < 10; i++) {
                 riflehunters[i] = new objects.Riflehunter("rhunter");
                 riflehunters[i].x = 800 + (200 * i);
-                riflehunters[i].dx = -0.7; // Speed of Rifle hunter
+                riflehunters[i].dx = -0.6; // Speed of Rifle hunter
                 riflehunters[i].y = 100 + (100 * Math.floor((Math.random() * 4)));
                 game.addChild(riflehunters[i]);
             }
@@ -102,7 +102,7 @@
             game.addChild(this.level1Grass);   
 
             // Instantiate Collision
-            collision = new managers.Collision(riflehunters, missleArray);
+            collision = new managers.Collision(riflehunters, missileArray);
                         
             // Add game container to stage
             stage.addChild(game);

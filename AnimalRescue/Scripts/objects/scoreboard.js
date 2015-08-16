@@ -22,19 +22,19 @@ var objects;
                 // When last hunter is killed, move to stage 2
                 if (score == 10) {
                     currentState = config.LEVEL2_STATE;
-                    setTimeout(function () { return changeState(); }, 500);
+                    setTimeout(function () { return changeState(); }, 1000);
                 }
             }
             else if (currentState == config.LEVEL2_STATE) {
-                if (score == 25) {
+                if (score == 20) {
                     currentState = config.LEVEL3_STATE;
-                    setTimeout(function () { return changeState(); }, 500);
+                    setTimeout(function () { return changeState(); }, 1000);
                 }
             }
             else if (currentState == config.LEVEL3_STATE) {
-                if (score == 45) {
+                if (score == 30) {
                     currentState = config.WIN_STATE;
-                    setTimeout(function () { return changeState(); }, 500);
+                    setTimeout(function () { return changeState(); }, 1000);
                 }
             }
         };

@@ -8,7 +8,6 @@
         public assetName: number;
         public sound: string = "";
         public cost: number;
-        public health: number;
         public damage: number;
         public attackSpeed: number;
         public isAvailable: boolean;
@@ -18,6 +17,7 @@
             super(assets.towerAtlas, imageString);
         }
 
+        // Update method
         private _update() {
 
         }

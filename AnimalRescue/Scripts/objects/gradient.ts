@@ -1,5 +1,5 @@
 ﻿module objects {
-    // Background Class +++++++++++++++++++++++++++++++++++++++
+    // Background Gradient Class +++++++++++++++++++++++++++++++++++++++
     export class Gradient extends createjs.Bitmap {
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++
         width: number;

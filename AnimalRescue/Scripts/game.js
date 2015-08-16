@@ -28,7 +28,7 @@
 /// <reference path="objects/rocktower.ts" />
 /// <reference path="objects/icetower.ts" />
 /// <reference path="objects/firetower.ts" />
-/// <reference path="objects/missle.ts" />
+/// <reference path="objects/missile.ts" />
 /// <reference path="objects/bowhunter.ts" />
 /// <reference path="objects/knifehunter.ts" />
 /// <reference path="objects/riflehunter.ts" />
@@ -59,7 +59,7 @@ var fireTower;
 var goldTower;
 var rockTower;
 var iceTower;
-var missle;
+var missile;
 // Game Variables
 var scoreBoard;
 var towerName;
@@ -78,8 +78,8 @@ var goldTowerArray = [];
 var rockTowerArray = [];
 var fireTowerArray = [];
 var iceTowerArray = [];
-var missle;
-var missleArray = [];
+var missile;
+var missileArray = [];
 var score = 0;
 // Preloader Function
 function preload() {

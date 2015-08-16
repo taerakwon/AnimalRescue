@@ -2,14 +2,12 @@
     // Asset Manager Class
     export class Assets {
         public loader: createjs.LoadQueue;
-        public atlas: createjs.SpriteSheet; // Sprites
-        public buttonAtlas: createjs.SpriteSheet;
-        public instructionAtlas: createjs.SpriteSheet;
+        public buttonAtlas: createjs.SpriteSheet; // Sprites for buttons
         public background: createjs.SpriteSheet; // Sprites for background
-        public towerAtlas: createjs.SpriteSheet;
-        public bowhunterAtlas: createjs.SpriteSheet;
-        public knifehunterAtlas: createjs.SpriteSheet;
-        public riflehunterAtlas: createjs.SpriteSheet;
+        public towerAtlas: createjs.SpriteSheet; // Sprites for towers
+        public bowhunterAtlas: createjs.SpriteSheet; // Sprites for bow hunter
+        public knifehunterAtlas: createjs.SpriteSheet; // Sprites for knife hunter
+        public riflehunterAtlas: createjs.SpriteSheet; // Sprites for rifle hunter
 
 
         // Image and Sound Manifest
@@ -26,7 +24,6 @@
             { id: "fire", src: "assets/images/fire.png" },
             { id: "ice", src: "assets/images/ice.png" },
             { id: "rock", src: "assets/images/rock.png" },
-            { id: "gold", src: "assets/images/gold.png" },
             { id: "gameOver", src: "assets/images/gameover.png" },
             { id: "win", src: "assets/images/win.png" },
 
@@ -198,7 +195,7 @@
         constructor() {
             this.init();
         }
-
+        // Initiating
         public init() {
             this.loader = new createjs.LoadQueue();
             this.loader.installPlugin(createjs.Sound);

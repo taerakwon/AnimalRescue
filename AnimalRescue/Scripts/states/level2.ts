@@ -18,14 +18,14 @@
         constructor() {                   
             this._Main();
             // Give more money in level 2  
-            scoreBoard.startMoney += 50;            
+            scoreBoard.startMoney += 100;            
         }
 
         // Update Method
         public update() {
             scoreBoard.update();
             collision.update();
-            for (var hunter = 0; hunter < 15; hunter++) {
+            for (var hunter = 0; hunter < 10; hunter++) {
                 knifehunters[hunter].update();
             }
 
@@ -37,15 +37,15 @@
                 rockTowerArray[tower].update();
             }
 
-            for (var missle = 0; missle < missleArray.length; missle++) {
-                missleArray[missle].update();
+            for (var missile = 0; missile < missileArray.length; missile++) {
+                missileArray[missile].update();
             }
         }
 
 
         // Main method
         private _Main() {
-            missleArray = [];
+            missileArray = [];
             this._destroy();
              
             // Instatiate level1Background
@@ -87,7 +87,7 @@
             scoreBoard = new objects.ScoreBoard();
             
             // Add Knife hunter
-            for (var i = 0; i < 15; i++) {
+            for (var i = 0; i < 10; i++) {
                 knifehunters[i] = new objects.Knifehunter("ahunter");;
                 knifehunters[i].x = 800 + (200 * i);
                 knifehunters[i].dx = -0.5; // Speed of Knife hunter
@@ -102,7 +102,7 @@
             game.addChild(this.level1Grass);   
 
             // Instantiate Collision
-            collision = new managers.Collision(knifehunters, missleArray);
+            collision = new managers.Collision(knifehunters, missileArray);
                         
             // Add game container to stage
             stage.addChild(game);
